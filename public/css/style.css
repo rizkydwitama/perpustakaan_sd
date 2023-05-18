@@ -1,0 +1,27 @@
+#pinjam-card{
+	height: 100vh;
+}
+
+#table-card{
+	margin-top: 30px;
+	height: auto;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+
+#table-card h2{
+	padding: 5px;
+}
+
+#table-content{
+	height: auto;
+}
+
+/* form */
+
+#form-card{
+	margin-top: 30px;
+	text-align: center;
+}

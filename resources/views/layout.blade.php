@@ -7,6 +7,8 @@
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- css sendiri -->
+  <link rel="stylesheet" href="{{asset('css/style.css')}}">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="{{asset('lte/plugins/fontawesome-free/css/all.min.css')}}">
   <!-- Ionicons -->
