@@ -20,7 +20,18 @@ Route::get('/', function () {
 });
 
 Route::get('/homepage', [HomePageController::class, 'viewHomePage'])->name('homepage');
-Route::get('/dataPeminjaman', [PeminjamanController::class, 'viewDataPinjam'])->name('DataPinjam');
+Route::get('/dataPeminjaman', [PeminjamanController::class, 'viewDataPinjam']);
+
 Route::get('/addPeminjam', [PeminjamanController::class, 'formAddPinjam'])->name('AddPinjam');
-Route::get('/editPeminjam', [PeminjamanController::class, 'formEditPinjam'])->name('EditPinjam');
+Route::post('/addPeminjam/store', [PeminjamanController::class, 'store']);
+Route::get('/addPeminjam/checkSlug', [PeminjamanController::class, 'checkSlug']);
+
+Route::get('/editPeminjam/{pinjam:slug}', [PeminjamanController::class, 'formEditPinjam'])->name('EditPinjam');
+Route::put('/editPeminjam/editPeminjam/{pinjam:slug}', [PeminjamanController::class, 'update']);
+
+Route::get('/editPeminjam/{pinjam:slug}/kembalikan', [PeminjamanController::class, 'kembalikan']);
+
+
 Route::get('/login', [AuthController::class, 'viewLogin'])->name('login');
+Route::post('/login', [AuthController::class, 'authenticate']);
+
