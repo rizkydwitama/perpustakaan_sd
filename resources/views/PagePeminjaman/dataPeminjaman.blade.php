@@ -1,3 +1,4 @@
+
 @extends('layout')
 @section('content')
 <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
@@ -33,19 +34,27 @@
 							</tr>
 						</thead>
 						<tbody>
+							@foreach ($pinjams as $pinjam)
 							<tr>
-								<th scope="row">1</th>
-								<td>buya hamka</td>
-								<td>dummy name</td>
-								<td>130120xxxx</td>
-								<td>23-04-2023</td>
-								<td>25-04-2023</td>
-								<td>Meminjam</td>
+								<th scope="row">{{ $pinjam->id }}</th>
+								<td>{{ $pinjam->judul_buku }}</td>
+								<td>{{ $pinjam->nama_peminjam }}</td>
+								<td>{{ $pinjam->nomor_induk_peminjam }}</td>
+								<td>{{ date('d-M-Y', strtotime($pinjam->tanggal_peminjaman))}}</td>
+								<td>{{ date('d-M-Y', strtotime($pinjam->tanggal_pengembalian)) }}</td>
 								<td>
-									<a href="{{ route('EditPinjam') }}" class="btn btn-success">edit</a>
-									<a href="#" class="btn btn-danger">dikembalikan</a>
+									@if ($pinjam->status_peminjaman == true)
+										Meminjam
+									@else
+										Dikembalikan
+									@endif
+								</td>
+								<td>
+									<a href="editPeminjam/{{ $pinjam->slug }}" class="btn btn-success">edit</a>
+									<a href="/editPeminjam/{{ $pinjam->slug }}/kembalikan" class="btn btn-danger">dikembalikan</a>
 								</td>
 							</tr>
+							@endforeach
 						</tbody>
 					</table>
 				</div>
