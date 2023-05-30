@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PeminjamanController;
+use App\Http\Controllers\PengembalianController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,6 +20,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+Route::get('/dataPengembalian', [PengembalianController::class, 'viewDataKembali'])->name('DataKembali');
+Route::get('/editPengembalian', [PengembalianController::class, 'formEditDataKembali'])->name('EditKembali');
 Route::get('/homepage', [HomePageController::class, 'viewHomePage'])->name('homepage');
 Route::get('/dataPeminjaman', [PeminjamanController::class, 'viewDataPinjam'])->name('DataPinjam');
 Route::get('/addPeminjam', [PeminjamanController::class, 'formAddPinjam'])->name('AddPinjam');

@@ -7,18 +7,17 @@
 		<div class="col-md-10" id="pinjam-card">
 			<div class="row justify-content-center">
 				<div class="col-md-11" id="table-card">
-					<h2>Data Peminjaman</h2>
+					<h2>Data Pengembalian</h2>
 					<div class="mb-3 searchButton">
 						<input type="nama" class="form-control" id="exampleFormControlInput1" placeholder="adam warlock">
 						<a href="#" class="btn btn-secondary"><i class="fa fa-search" aria-hidden="true"></i></a>
 						&nbsp;
-						<a href="{{ route('AddPinjam') }}" class="btn btn-primary tombolTambah">tambah</a>
 					</div>
 				</div>
 			</div>
 			<div class="row justify-content-center">
 				<div class="col-md-11" id="table-content">
-					<table id="dataPinjam" class="table table-bordered table-hover tablePinjam">
+					<table class="table table-bordered table-hover">
 						<thead>
 							<tr>
 								<th scope="col">id</th>
@@ -42,8 +41,7 @@
 								<td>25-04-2023</td>
 								<td>Meminjam</td>
 								<td>
-									<a href="{{ route('EditPinjam') }}" class="btn btn-success">edit</a>
-									<a href="#" class="btn btn-danger">dikembalikan</a>
+									<a href="{{ route('EditKembali') }}" class="btn btn-success">edit</a>
 								</td>
 							</tr>
 						</tbody>
