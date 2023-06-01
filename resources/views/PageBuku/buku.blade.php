@@ -12,7 +12,9 @@
                     <img src="{{asset('img/cover_buku.jpg')}}"> 
                 </div>
                 <div class="info">
-                    <h3> <a href="{{route('detailBuku')}}"> Judul Buku 1 </a></h3>
+                    <a href="{{route('detailBuku')}}" >
+                        <h3> Judul Buku 1 </h3>
+                    </a>
                     <p> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat, voluptatibus. </p>
                 </div>
             </div>

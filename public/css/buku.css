@@ -9,6 +9,11 @@
     text-align: center;
 }
 
+.latest-added a{
+    color: black;
+    text-decoration: none;
+}
+
 .latest-row{
     display: flex;
     flex-wrap: wrap;

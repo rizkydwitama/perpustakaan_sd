@@ -1,0 +1,27 @@
+.container .row .col {
+    padding: 20px;
+}
+
+.container .row .col img {
+    width: 80%;
+    height: 100%;
+}
+
+.col h1 {
+    padding-top: 30px;
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+
+.col h3 {
+    text-decoration: underline;
+    padding-bottom: 30px;
+}
+
+.col h5 {
+    padding-bottom: 30px;
+}
+
+.col .btn {
+    margin-top: 30px;
+}
