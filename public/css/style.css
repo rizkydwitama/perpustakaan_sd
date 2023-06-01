@@ -25,3 +25,19 @@
 	margin-top: 30px;
 	text-align: center;
 }
+
+.searchButton{
+	display: flex;
+}
+
+.searchButton input{
+	border-radius: 5px 0 0 5px;
+}
+
+.searchButton a{
+	border-radius: 0 5px 5px 0;
+}
+
+.tombolTambah {
+	border-radius: 5px 5px 5px 5px !important;
+}
