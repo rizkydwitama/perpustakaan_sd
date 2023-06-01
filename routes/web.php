@@ -4,12 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PeminjamanController;
-<<<<<<< HEAD
 use App\Http\Controllers\PengembalianController;
-=======
 use App\Http\Controllers\BukuController;
-
->>>>>>> origin/main
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,7 +25,7 @@ Route::get('/', function () {
 Route::get('/dataPengembalian', [PengembalianController::class, 'viewDataKembali'])->name('DataKembali');
 Route::get('/editPengembalian', [PengembalianController::class, 'formEditDataKembali'])->name('EditKembali');
 Route::get('/homepage', [HomePageController::class, 'viewHomePage'])->name('homepage');
-Route::get('/dataPeminjaman', [PeminjamanController::class, 'viewDataPinjam']);
+Route::get('/dataPeminjaman', [PeminjamanController::class, 'viewDataPinjam'])->name('DataPinjam');
 Route::get('/buku', [BukuController::class, 'ViewBuku'])->name('buku');
 Route::get('/detailBuku', [BukuController::class, 'ViewDetailBuku'])->name('detailBuku');
 

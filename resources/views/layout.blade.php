@@ -75,6 +75,15 @@
           </li>
 
           <li class="nav-item">
+            <a href="{{ route('buku') }}" class="nav-link">
+              <i class="nav-icon fa fa-light fa-book" aria-hidden="true"></i>
+              <p>
+                Katalog Buku
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
             <a href="{{ route('DataPinjam') }}" class="nav-link">
               <i class="nav-icon fa fa-file" aria-hidden="true"></i>
               <p>
