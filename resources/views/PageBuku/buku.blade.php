@@ -5,6 +5,12 @@
     <div class="latest-added">
         <div class="heading">
             <h1> Katalog Buku </h1>
+            <div class="mb-3 searchButton">
+                <input type="nama" class="form-control" id="exampleFormControlInput1" placeholder="laravel">
+                <a href="#" class="btn btn-secondary"><i class="fa fa-search" aria-hidden="true"></i></a>
+                &nbsp;
+                <a href="{{route('tambahBuku')}}" class="btn btn-primary tombolTambah">Tambah</a>
+            </div>
         </div>
         <div class="latest-row" id="booknamesearch">
             <div class="latest-col">

@@ -15,4 +15,15 @@ class BukuController extends Controller
     {
         return view('PageBuku.detailBuku');
     }
+
+    public function ViewTambahBuku()
+    {
+        return view('PageBuku.tambahBuku');
+    }
+
+    public function ViewEditBuku()
+    {
+        return view('PageBuku.editBuku');
+    }
+
 }

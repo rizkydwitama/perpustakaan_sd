@@ -31,6 +31,8 @@ Route::get('/dataPeminjaman', [PeminjamanController::class, 'viewDataPinjam'])->
 //Buku
 Route::get('/buku', [BukuController::class, 'ViewBuku'])->name('buku');
 Route::get('/detailBuku', [BukuController::class, 'ViewDetailBuku'])->name('detailBuku');
+Route::get('/tambahBuku', [BukuController::class, 'ViewTambahBuku'])->name('tambahBuku');
+Route::get('/editBuku', [BukuController::class, 'ViewEditBuku'])->name('editBuku');
 
 //Anggota
 Route::get('/dataAnggota', [AnggotaController::class, 'ViewDataAnggotaPage'])->name('dataAnggota');
