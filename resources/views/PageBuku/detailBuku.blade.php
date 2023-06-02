@@ -19,6 +19,11 @@
                             Kembali ke halaman <b> Katalog Buku </b>
                         </button>
                     </a>
+                    <a href="{{route('editBuku')}}">
+                        <button type="button" class="btn btn-secondary btn-lg btn-block">
+                            Edit Buku
+                        </button>
+                    </a>
                 </div>
             </div>
         </div>
