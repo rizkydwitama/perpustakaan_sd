@@ -7,10 +7,13 @@ use Illuminate\Http\Request;
 
 class AnggotaController extends Controller
 {
-    public function ViewDataAnggotaPage()
+    public function ViewDataAnggotaPage(Request $request)
     {
+        $search = $request->input('search');
+        $anggotas = Anggota::where('nama_anggota', 'like', '%' . $search . '%')->get();
+
         return view('PageAnggota.dataAnggota', [
-            "anggotas" => Anggota::all()
+            "anggotas" => $anggotas
         ]);
     }
 

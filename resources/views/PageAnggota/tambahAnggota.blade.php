@@ -20,22 +20,22 @@
 						@csrf
                         <div class="mb-3">
 							<label for="nama_anggota" class="form-label">Nama</label>
-							<input type="text" name="nama_anggota" class="form-control" id="nama_anggota">
+							<input type="text" name="nama_anggota" class="form-control" id="nama_anggota" required>
 						</div>
 
 						<div class="mb-3">
 							<label for="nomor_induk_anggota" class="form-label">Nomor Induk Anggota</label>
-							<input type="text" name="nomor_induk_anggota" class="form-control" id="nomor_induk_anggota">
+							<input type="text" name="nomor_induk_anggota" class="form-control" id="nomor_induk_anggota" required>
 						</div>
 
 						<div class="mb-3">
 							<label for="kelas" class="form-label">Kelas</label>
-							<input type="text" name="kelas" class="form-control" id="kelas">
+							<input type="text" name="kelas" class="form-control" id="kelas" required>
 						</div>
 
                         <div class="mb-3">
 							<label for="jumlah_pinjam" class="form-label">Jumlah Pinjam</label>
-							<input type="number" name="jumlah_pinjam" class="form-control" id="jumlah_pinjam">
+							<input type="number" name="jumlah_pinjam" class="form-control" id="jumlah_pinjam" required>
 						</div>
 
 						<div class="mb-3">

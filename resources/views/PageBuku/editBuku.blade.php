@@ -16,50 +16,49 @@
 			</div>
 			<div class="row justify-content-center">
 				<div class="col-md-9" id="form-content">
-					<form action="#" method="#" enctype="multipart/form-data">
-						@csrf
-                        <div class="mb-3">
+					<form action="editBuku/{{ $buku->slug }}" method="post" enctype="multipart/form-data">
+                        @method('put')
+                        @csrf
+						<div class="mb-3">
 							<label for="judul_buku" class="form-label">Judul Buku</label>
-							<input type="text" name="judul_buku" class="form-control" id="judul_buku">
+							<input type="text" name="judul_buku" class="form-control" id="judul_buku" value="{{ $buku->judul_buku }}">
 						</div>
 
 						<div class="mb-3">
-							<label for="nama_pengarang" class="form-label">Nama Pengarang</label>
-							<input type="text" name="nama_pengarang" class="form-control" id="nama_pengarang">
-						</div>
-
-						<div class="mb-3">
-							<label for="impresium" class="form-label">Impresium</label>
-							<input type="text" name="impresium" class="form-control" id="impresium">
+							<label for="pengarang" class="form-label">Pengarang</label>
+							<input type="text" name="pengarang" class="form-control" id="pengarang" value="{{ $buku->pengarang }}">
 						</div>
 
                         <div class="mb-3">
-							<label for="isbn" class="form-label">ISBN</label>
-							<input type="text" name="isbn" class="form-control" id="isbn">
+							<label for="impresium" class="form-label">Impresium</label>
+							<input type="text" name="impresium" class="form-control" id="impresium" value="{{ $buku->impresium }}">
 						</div>
 
-						<form>
-                            <div class="form-group">
-                              <label for="exampleFormControlFile1">Sampul Buku</label>
-                              <input type="file" class="form-control-file" id="exampleFormControlFile1">
-                            </div>
-                          </form>
+                        <div class="mb-3">
+							<label for="ISBN" class="form-label">ISBN</label>
+							<input type="text" name="ISBN" class="form-control" id="ISBN" value="{{ $buku->ISBN }}">
+						</div>
+
+                        <div class="mb-3">
+                            <label for="gambar" class="form-label">Gambar</label>
+                            <input type="hidden" name="oldGambar" value="{{ $buku->gambar }}">
+                            <input class="form-control" type="file" id="gambar" name="gambar">
+						</div>
 
                         <div class="mb-3">
 							<label for="jumlah_buku" class="form-label">Jumlah Buku</label>
-							<input type="number" name="jumlah_buku" class="form-control" id="jumlah_buku">
+							<input type="text" name="jumlah_buku" class="form-control" id="jumlah_buku" value="{{ $buku->jumlah_buku}}">
 						</div>
 
                         <div class="mb-3">
 							<label for="kolasi" class="form-label">Kolasi</label>
-							<input type="text" name="kolasi" class="form-control" id="kolasi">
+							<input type="text" name="kolasi" class="form-control" id="kolasi" value="{{ $buku->kolasi }}">
 						</div>
 
                         <div class="mb-3">
-							<label for="nomor_class" class="form-label">Nomor Class</label>
-							<input type="text" name="nomor_class" class="form-control" id="nomor_class">
+							<label for="no_class" class="form-label">No Class</label>
+							<input type="text" name="no_class" class="form-control" id="no_class" value="{{ $buku->no_class }}">
 						</div>
-
 						<button type="submit" class="btn btn-outline-primary">Edit Buku</button>
 					</form>
 				</div>

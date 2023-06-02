@@ -30,9 +30,14 @@ Route::get('/dataPeminjaman', [PeminjamanController::class, 'viewDataPinjam'])->
 
 //Buku
 Route::get('/buku', [BukuController::class, 'ViewBuku'])->name('buku');
-Route::get('/detailBuku', [BukuController::class, 'ViewDetailBuku'])->name('detailBuku');
+Route::get('/detailBuku/{buku:slug}', [BukuController::class, 'ViewDetailBuku'])->name('detailBuku');
 Route::get('/tambahBuku', [BukuController::class, 'ViewTambahBuku'])->name('tambahBuku');
-Route::get('/editBuku', [BukuController::class, 'ViewEditBuku'])->name('editBuku');
+Route::post('/tambahBuku/store', [BukuController::class, 'store']);
+Route::get('/tambahBuku/checkSlug', [BukuController::class, 'checkSlug']);
+Route::get('/detailBuku/editBuku/{buku:slug}', [BukuController::class, 'ViewEditBuku'])->name('EditBuku');
+Route::put('detailBuku/editBuku/editBuku/{buku:slug}', [BukuController::class, 'update']);
+Route::delete('/hapusBuku/{buku:slug}', [BukuController::class, 'destroy'])->name('hapusBuku');
+
 
 //Anggota
 Route::get('/dataAnggota', [AnggotaController::class, 'ViewDataAnggotaPage'])->name('dataAnggota');
