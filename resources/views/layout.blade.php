@@ -75,6 +75,15 @@
           </li>
 
           <li class="nav-item">
+            <a href="{{route('dataAnggota')}}" class="nav-link">
+              <i class="nav-icon fa fa-address-book" aria-hidden="true"></i>
+              <p>
+                Data Anggota
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
             <a href="{{ route('buku') }}" class="nav-link">
               <i class="nav-icon fa fa-light fa-book" aria-hidden="true"></i>
               <p>
@@ -88,15 +97,6 @@
               <i class="nav-icon fa fa-file" aria-hidden="true"></i>
               <p>
                 Data Peminjaman
-              </p>
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
-              <i class="nav-icon fa fa-address-book" aria-hidden="true"></i>
-              <p>
-                Data Anggota
               </p>
             </a>
           </li>
@@ -162,5 +162,6 @@
 <script src="{{asset('lte/dist/js/demo.js')}}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{asset('lte/dist/js/pages/dashboard.js')}}"></script>
+
 </body>
 </html>

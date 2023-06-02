@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PeminjamanController;
 use App\Http\Controllers\PengembalianController;
 use App\Http\Controllers\BukuController;
+use App\Http\Controllers\AnggotaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,6 +29,9 @@ Route::get('/homepage', [HomePageController::class, 'viewHomePage'])->name('home
 Route::get('/dataPeminjaman', [PeminjamanController::class, 'viewDataPinjam'])->name('DataPinjam');
 Route::get('/buku', [BukuController::class, 'ViewBuku'])->name('buku');
 Route::get('/detailBuku', [BukuController::class, 'ViewDetailBuku'])->name('detailBuku');
+Route::get('/dataAnggota', [AnggotaController::class, 'ViewDataAnggotaPage'])->name('dataAnggota');
+Route::get('/tambahAnggota', [AnggotaController::class, 'ViewTambahAnggotaPage'])->name('tambahAnggota');
+Route::get('/editAnggota', [AnggotaController::class, 'ViewEditAnggotaPage'])->name('editAnggota');
 
 Route::get('/addPeminjam', [PeminjamanController::class, 'formAddPinjam'])->name('AddPinjam');
 Route::post('/addPeminjam/store', [PeminjamanController::class, 'store']);

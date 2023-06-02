@@ -14,9 +14,11 @@
                     <h5> <b> Kolasi: </b> 332 Halaman </h5>
                     <h5> <b> Jumlah Buku: </b> 10 </h5>
                     <h5> <b> Nomor Class: </b> 808, 8.3 ISM </h5>
-                    <button type="button" class="btn btn-secondary btn-lg btn-block">
-                        Kembali ke katalog buku
-                    </button>
+                    <a href="buku">
+                        <button type="button" class="btn btn-secondary btn-lg btn-block">
+                            Kembali ke halaman <b> Katalog Buku </b>
+                        </button>
+                    </a>
                 </div>
             </div>
         </div>
