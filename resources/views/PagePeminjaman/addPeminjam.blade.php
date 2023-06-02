@@ -20,7 +20,12 @@
 						@csrf
 						<div class="mb-3">
 							<label for="judul_buku" class="form-label">Judul Buku</label>
-							<input type="text" name="judul_buku" class="form-control" id="judul_buku">
+							<input type="text" name="judul_buku" class="form-control @error ('judul_buku') is-invalid @enderror" id="judul_buku">
+							@error('judul_buku')
+								<div class="invalid-feedback">
+									{{ $message }}
+								</div>
+							@enderror
 						</div>
 
 						<div class="mb-3" hidden>
@@ -30,24 +35,44 @@
 
 						<div class="mb-3">
 							<label for="nama_peminjam" class="form-label">Nama Peminjam</label>
-							<input type="text" name="nama_peminjam" class="form-control" id="nama_peminjam">
+							<input type="text" name="nama_peminjam" class="form-control @error ('nama_peminjam') is-invalid @enderror" id="nama_peminjam">
+							@error('nama_peminjam')
+								<div class="invalid-feedback">
+									{{ $message }}
+								</div>
+							@enderror
 						</div>
 
 						<div class="mb-3">
 							<label for="nomor_induk_peminjam" class="form-label">Nomor Induk Siswa</label>
-							<input type="text" name="nomor_induk_peminjam" class="form-control" id="nomor_induk_peminjam">
+							<input type="text" name="nomor_induk_peminjam" class="form-control @error ('nomor_induk_peminjam') is-invalid @enderror" id="nomor_induk_peminjam">
+							@error('nomor_induk_peminjam')
+								<div class="invalid-feedback">
+									{{ $message }}
+								</div>
+							@enderror
 						</div>
 
 						<div class="mb-3">
 							<label for="tanggal_peminjaman" class="form-label">Tanggal Pinjam</label>
 							<br>
-							<input type="text" name="tanggal_peminjaman" class="form-control datepicker" id="tanggal_peminjaman">
+							<input type="text" name="tanggal_peminjaman" class="form-control datepicker @error ('tanggal_peminjaman') is-invalid @enderror" id="tanggal_peminjaman">
+							@error('tanggal_peminjaman')
+								<div class="invalid-feedback">
+									{{ $message }}
+								</div>
+							@enderror
 						</div>
 
 						<div class="mb-3">
 							<label for="tanggal_pengembalian" class="form-label">Tanggal Kembali</label>
 							<br>
-							<input type="text" name="tanggal_pengembalian" class="form-control datepicker" id="tanggal_pengembalian">
+							<input type="text" name="tanggal_pengembalian" class="form-control datepicker @error ('tanggal_pengembalian') is-invalid @enderror" id="tanggal_pengembalian">
+							@error('tanggal_pengembalian')
+								<div class="invalid-feedback">
+									{{ $message }}
+								</div>
+							@enderror
 						</div>
 
 						<button type="submit" class="btn btn-outline-primary">Add Data</button>

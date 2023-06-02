@@ -32,18 +32,24 @@
 							</tr>
 						</thead>
 						<tbody>
+							@foreach ($pinjams as $pinjam)
+							@if ($pinjam->status_peminjaman == 0)															
 							<tr>
-								<th scope="row">1</th>
-								<td>buya hamka</td>
-								<td>dummy name</td>
-								<td>130120xxxx</td>
-								<td>23-04-2023</td>
-								<td>25-04-2023</td>
-								<td>Meminjam</td>
+								<th scope="row">{{ $pinjam->id }}</th>
+								<td>{{ $pinjam->judul_buku }}</td>
+								<td>{{ $pinjam->nama_peminjam }}</td>
+								<td>{{ $pinjam->nomor_induk_peminjam }}</td>
+								<td>{{ date('d-M-Y', strtotime($pinjam->tanggal_peminjaman))}}</td>
+								<td>{{ date('d-M-Y', strtotime($pinjam->tanggal_kembali_faktual)) }}</td>
+								<td>Dikembalikan</td>
 								<td>
-									<a href="{{ route('EditKembali') }}" class="btn btn-success">edit</a>
+									<a href="editPengembalian/{{ $pinjam->slug }}" class="btn btn-primary">edit</a>
+									<a href="editPengembalian/{{ $pinjam->slug }}/batal" class="btn btn-warning">batal</a>
+									<a href="editPengembalian/{{ $pinjam->slug }}/hapus" class="btn btn-danger">hapus</a>
 								</td>
 							</tr>
+							@endif
+							@endforeach
 						</tbody>
 					</table>
 				</div>

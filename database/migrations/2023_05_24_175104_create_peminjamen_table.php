@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('nomor_induk_peminjam');
             $table->date("tanggal_peminjaman");
             $table->date("tanggal_pengembalian");
+            $table->date("tanggal_kembali_faktual")->nullable();
             $table->boolean("status_peminjaman")->default(true);
             $table->timestamps();
             

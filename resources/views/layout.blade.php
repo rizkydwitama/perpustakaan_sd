@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Dashboard</title>
+  <title>Perpustakaan SD 1 Darul Hikam Bandung</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -45,7 +45,7 @@
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
       <img src="{{asset('lte/dist/img/logo_sd_darul_hikam.png')}}" alt="LogoSD" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">PERPUSTAKAAN</span>
+      <span class="brand-text font-weight-light">Perpustakaan</span>
     </a>
 
     <!-- Sidebar -->
@@ -56,7 +56,7 @@
           <img src="{{asset('lte/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Administrator</a>
+          <a href="#" class="d-block">Admin</a>
         </div>
       </div>
 
@@ -66,16 +66,16 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="{{ route('homepage') }}" class="nav-link active">
+            <a href="{{ route('homepage') }}" class="nav-link {{ Request::is('homepage')? 'active' : '' }}">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Dashboard
+                Beranda
               </p>
             </a>
           </li>
 
           <li class="nav-item">
-            <a href="{{route('dataAnggota')}}" class="nav-link">
+            <a href="{{route('dataAnggota')}}" class="nav-link {{ Request::is('dataAnggota')? 'active' : '' }}">
               <i class="nav-icon fa fa-address-book" aria-hidden="true"></i>
               <p>
                 Data Anggota
@@ -84,7 +84,7 @@
           </li>
 
           <li class="nav-item">
-            <a href="{{ route('buku') }}" class="nav-link">
+            <a href="{{ route('buku') }}" class="nav-link {{ Request::is('buku')? 'active' : '' }}">
               <i class="nav-icon fa fa-light fa-book" aria-hidden="true"></i>
               <p>
                 Katalog Buku
@@ -93,7 +93,7 @@
           </li>
 
           <li class="nav-item">
-            <a href="{{ route('DataPinjam') }}" class="nav-link">
+            <a href="{{ route('DataPinjam') }}" class="nav-link {{ Request::is('dataPeminjaman')? 'active' : '' }}">
               <i class="nav-icon fa fa-file" aria-hidden="true"></i>
               <p>
                 Data Peminjaman
@@ -102,10 +102,19 @@
           </li>
 
           <li class="nav-item">
-            <a href="{{ route('DataKembali') }}" class="nav-link">
+            <a href="{{ route('DataKembali') }}" class="nav-link {{ Request::is('dataPengembalian')? 'active' : '' }}">
               <i class="nav-icon fa fa-database"></i>
               <p>
                 Data Pengembalian
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-sign-out-alt"></i>
+              <p>
+                Keluar
               </p>
             </a>
           </li>
