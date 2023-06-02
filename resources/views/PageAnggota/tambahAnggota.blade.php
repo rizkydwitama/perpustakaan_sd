@@ -16,33 +16,32 @@
 			</div>
 			<div class="row justify-content-center">
 				<div class="col-md-9" id="form-content">
-					<form action="#" method="#">
-						
-						<div class="mb-3">
-							<label for="exampleFormControlInput1" class="form-label">Nama Lengkap</label>
-							<input type="text" name="nama_lengkap" class="form-control" id="exampleFormControlInput1" value="#">
+					<form action="/tambahAnggota/store" method="post" enctype="multipart/form-data">
+						@csrf
+                        <div class="mb-3">
+							<label for="nama_anggota" class="form-label">Nama</label>
+							<input type="text" name="nama_anggota" class="form-control" id="nama_anggota">
 						</div>
 
 						<div class="mb-3">
-							<label for="exampleFormControlInput1" class="form-label">Nomor Induk</label>
-							<input type="text" name="nomor_induk" class="form-control" id="exampleFormControlInput1" value="#">
+							<label for="nomor_induk_anggota" class="form-label">Nomor Induk Anggota</label>
+							<input type="text" name="nomor_induk_anggota" class="form-control" id="nomor_induk_anggota">
 						</div>
 
 						<div class="mb-3">
-							<label for="exampleFormControlInput1" class="form-label">Kelas</label>
-							<input type="text" name="kelas" class="form-control" id="exampleFormControlInput1" value="#">
+							<label for="kelas" class="form-label">Kelas</label>
+							<input type="text" name="kelas" class="form-control" id="kelas">
+						</div>
+
+                        <div class="mb-3">
+							<label for="jumlah_pinjam" class="form-label">Jumlah Pinjam</label>
+							<input type="number" name="jumlah_pinjam" class="form-control" id="jumlah_pinjam">
 						</div>
 
 						<div class="mb-3">
-							<label for="exampleFormControlInput1" class="form-label">Jumlah Peminjaman</label>
+							<label for="jenis_kelamin" class="form-label">Jenis Kelamin</label>
 							<br>
-							<input type="text" name="jumlah_peminjaman" class="form-control" id="jumlah_peminjaman" value="#">
-						</div>
-
-						<div class="mb-3">
-							<label for="exampleFormControlInput1" class="form-label">Jenis Kelamin</label>
-							<br>
-							<input type="radio"  name="jenis_kelamin" id="laki_laki" value="Laki-Laki">
+							<input type="radio" name="jenis_kelamin" id="laki_laki" value="Laki-Laki">
 							<label class="form-check-label" for="laki_laki"> Laki-Laki </label>
 							<br>
 							<input type="radio" name="jenis_kelamin" id="perempuan" value="Perempuan">

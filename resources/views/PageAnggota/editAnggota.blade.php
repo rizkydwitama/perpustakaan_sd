@@ -16,35 +16,36 @@
 			</div>
 			<div class="row justify-content-center">
 				<div class="col-md-9" id="form-content">
-					<form action="#" method="#" enctype="multipart/form-data">
-						<div class="mb-3">
-							<label for="nama_lengkap" class="form-label">Nama Lengkap</label>
-							<input type="text" name="nama_lengkap" class="form-control" id="nama_lengkap">
+					<form action="editAnggota/{{ $anggota->id }}" method="post">
+                        @method('put')
+                        @csrf
+                        <div class="mb-3">
+							<label for="nama_anggota" class="form-label">Nama</label>
+							<input type="text" name="nama_anggota" class="form-control" id="nama_anggota" value="{{ $anggota->nama_anggota }}">
 						</div>
 
 						<div class="mb-3">
-							<label for="nomor_induk" class="form-label">Nomor Induk</label>
-							<input type="text" name="nomor_induk" class="form-control" id="nomor_induk">
+							<label for="nomor_induk_anggota" class="form-label">Nomor Induk Anggota</label>
+							<input type="text" name="nomor_induk_anggota" class="form-control" id="nomor_induk_anggota" value="{{ $anggota->nomor_induk_anggota }}">
 						</div>
 
 						<div class="mb-3">
 							<label for="kelas" class="form-label">Kelas</label>
-							<input type="text" name="kelas" class="form-control" id="kelas">
+							<input type="text" name="kelas" class="form-control" id="kelas" value="{{ $anggota->kelas }}">
+						</div>
+
+                        <div class="mb-3">
+							<label for="jumlah_pinjam" class="form-label">Jumlah Pinjam</label>
+							<input type="number" name="jumlah_pinjam" class="form-control" id="jumlah_pinjam" value="{{ $anggota->jumlah_pinjam}}">
 						</div>
 
 						<div class="mb-3">
-							<label for="jumlah_peminjaman" class="form-label">Jumlah Peminjaman</label>
+							<label for="jenis_kelamin" class="form-label">Jenis Kelamin</label>
 							<br>
-							<input type="text" name="jumlah_peminjaman" class="form-control" id="jumlah_peminjaman">
-						</div>
-
-						<div class="mb-3">
-							<label for="exampleFormControlInput1" class="form-label">Jenis Kelamin</label>
-							<br>
-							<input type="radio"  name="jenis_kelamin" id="laki_laki" value="Laki-Laki">
+							<input type="radio"  name="jenis_kelamin" id="laki_laki" value="Laki-Laki" {{ $anggota->jenis_kelamin == 'Laki-Laki' ? 'checked' : '' }}>
 							<label class="form-check-label" for="laki_laki"> Laki-Laki </label>
 							<br>
-							<input type="radio" name="jenis_kelamin" id="perempuan" value="Perempuan">
+							<input type="radio" name="jenis_kelamin" id="perempuan" value="Perempuan" {{ $anggota->jenis_kelamin == 'Perempuan' ? 'checked' : '' }}>
 							<label class="form-check-label" for="perempuan"> Perempuan </label>
 						</div>
 

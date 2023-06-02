@@ -29,17 +29,25 @@
 							</tr>
 						</thead>
 						<tbody>
+                            @foreach ($anggotas as $anggota)
 							<tr>
-								<th scope="row">0</th>
-								<td>A</td>
-								<td>A</td>
-								<td>A</td>
-								<td>A</td>
-								<td>A</td>
+								<th scope="row">{{ $anggota->id }}</th>
+								<td>{{ $anggota->nama_anggota }}</td>
+								<td>{{ $anggota->nomor_induk_anggota }}</td>
+								<td>{{ $anggota->kelas}}</td>
+								<td>{{ $anggota->jumlah_pinjam}}</td>
+								<td>{{ $anggota->jenis_kelamin}}</td>
 								<td>
-									<a href="{{route('editAnggota')}}" class="btn btn-success">Edit</a>
-								</td>
+								<a href="editAnggota/{{ $anggota->id }}" class="btn btn-success">Edit</a>
+                                <form action="{{ route('hapusAnggota', $anggota->id) }}" method="POST" class="d-inline">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger">Hapus</button>
+                                </form>
+                                </td>
+
 							</tr>
+							@endforeach
 						</tbody>
 					</table>
 				</div>
