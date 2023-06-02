@@ -56,16 +56,28 @@ class PeminjamanController extends Controller
     }
 
     public function update(Request $request, Peminjaman $pinjam){
+        
         $rules = [
             'judul_buku' => $request->judul_buku,
             'nama_peminjam' => $request->nama_peminjam,
             'nomor_induk_peminjam' => $request->nomor_induk_peminjam,
         ];
 
-        $date_pinjam = Carbon::createFromFormat('m/d/Y', $request->tanggal_peminjaman)->format('Y-m-d');
-        $date_kembali = Carbon::createFromFormat('m/d/Y', $request->tanggal_pengembalian)->format('Y-m-d');
-        $rules['tanggal_peminjaman'] = $date_pinjam;
-        $rules['tanggal_pengembalian'] = $date_kembali;
+        if($request->tanggal_peminjaman != $pinjam->tanggal_peminjaman ){
+            $date_pinjam = Carbon::createFromFormat('m/d/Y', $request->tanggal_peminjaman)->format('Y-m-d');
+            $rules['tanggal_peminjaman'] = $date_pinjam;
+        } else{
+            $rules['tanggal_peminjaman'] = $pinjam->tanggal_peminjaman;
+        }
+        
+        if($request->tanggal_pengembalian !=$pinjam->tanggal_pengembalian){
+            $date_kembali = Carbon::createFromFormat('m/d/Y', $request->tanggal_pengembalian)->format('Y-m-d');
+            $rules['tanggal_pengembalian'] = $date_kembali;
+        } else{
+            $rules['tanggal_pengembalian'] = $pinjam->tanggal_pengembalian;
+        }
+    
+        
 
         // $validatedData = $request->validate($rules);
         // dd($validatedData);
@@ -80,9 +92,18 @@ class PeminjamanController extends Controller
         // dd($pinjam);
         $data = Peminjaman::find($pinjam->id);
         $data->status_peminjaman = false;
+        $data->tanggal_kembali_faktual = $data->updated_at;
         $data->save();
 
         return redirect('/dataPeminjaman')->with('success', 'New Post has been added!');
+    }
+
+    public function hapus(Peminjaman $pinjam){
+        $data = Peminjaman::find($pinjam->id);
+
+        $data->delete();
+        return redirect('/dataPeminjaman')->with('success', 'Data Berhasil Dihapus');
+
     }
 
     public function checkSlug(Request $request){
