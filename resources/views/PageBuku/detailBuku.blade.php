@@ -14,14 +14,19 @@
                     <h5> <b> Kolasi: </b> 332 Halaman </h5>
                     <h5> <b> Jumlah Buku: </b> 10 </h5>
                     <h5> <b> Nomor Class: </b> 808, 8.3 ISM </h5>
+                    <a href="{{route('editBuku')}}">
+                        <button type="button" class="btn btn-success btn-lg btn-block">
+                            Edit Buku
+                        </button>
+                    </a>
+                    <a href="#">
+                        <button type="button" class="btn btn-danger btn-lg btn-block">
+                            Hapus Buku
+                        </button>
+                    </a>
                     <a href="buku">
                         <button type="button" class="btn btn-secondary btn-lg btn-block">
                             Kembali ke halaman <b> Katalog Buku </b>
-                        </button>
-                    </a>
-                    <a href="{{route('editBuku')}}">
-                        <button type="button" class="btn btn-secondary btn-lg btn-block">
-                            Edit Buku
                         </button>
                     </a>
                 </div>
