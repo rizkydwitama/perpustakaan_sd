@@ -6,12 +6,14 @@
 			<div class="row justify-content-center">
 				<div class="col-md-11" id="table-card">
 					<h2>Data Anggota Perpustakaan</h2>
-					<div class="mb-3 searchButton">
-						<input type="nama" class="form-control" id="exampleFormControlInput1" placeholder="cari anggota">
-						<a href="#" class="btn btn-secondary"><i class="fa fa-search" aria-hidden="true"></i></a>
-						&nbsp;
-						<a href="{{ route('tambahAnggota') }}" class="btn btn-primary tombolTambah">Tambah</a>
-					</div>
+                    <form>
+                        <div class="mb-3 searchButton">
+                            <input type="text" class="form-control" id="search" name="search" placeholder="search...">
+                            <button class="btn btn-secondary" type="submit" id="search" value="{{ request('search') }}"><i class="fa fa-search" aria-hidden="true"></i></button>
+                            &nbsp;
+                            <a href="{{ route('tambahAnggota') }}" class="btn btn-primary tombolTambah">Tambah</a>
+                        </div>
+                    </form>
 				</div>
 			</div>
 			<div class="row justify-content-center">

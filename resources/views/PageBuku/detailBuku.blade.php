@@ -4,27 +4,27 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <img src="{{asset('img/cover_buku.jpg')}}">
+                    <img src="{{ asset('storage/' . $buku->gambar) }}" alt="{{ $buku->judul_buku }}">
                 </div>
                 <div class="col">
-                    <h1> Semua Bisa Menjadi Programmer Laravel Basic </h1>
-                    <h3> Yuniar Supardi </h3>
-                    <h5> <b> Impresium: </b> Bandung : PT Elex Media Komputindo, 2019 </h5>
-                    <h5> <b> ISBN: </b> 978-623-00-1046-0 </h5>
-                    <h5> <b> Kolasi: </b> 332 Halaman </h5>
-                    <h5> <b> Jumlah Buku: </b> 10 </h5>
-                    <h5> <b> Nomor Class: </b> 808, 8.3 ISM </h5>
-                    <a href="{{route('editBuku')}}">
+                    <h1> {{ $buku->judul_buku }}</h1>
+                    <h3> {{ $buku->pengarang }} </h3>
+                    <h5> <b> Impresium: </b> {{ $buku->impresium }} </h5>
+                    <h5> <b> ISBN: </b> {{ $buku->ISBN }} </h5>
+                    <h5> <b> Kolasi: </b> {{ $buku->kolasi }} </h5>
+                    <h5> <b> Jumlah Buku: </b> {{ $buku->jumlah_buku }} </h5>
+                    <h5> <b> Nomor Class: </b> {{ $buku->no_class}} </h5>
+                    <a href="editBuku/{{ $buku->slug }}">
                         <button type="button" class="btn btn-success btn-lg btn-block">
                             Edit Buku
                         </button>
                     </a>
-                    <a href="#">
-                        <button type="button" class="btn btn-danger btn-lg btn-block">
-                            Hapus Buku
-                        </button>
-                    </a>
-                    <a href="buku">
+                    <form action="{{ route('hapusBuku', $buku->slug) }}" method="POST" class="d-inline">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger btn-lg btn-block">Hapus Buku</button>
+                    </form>
+                    <a href="/buku">
                         <button type="button" class="btn btn-secondary btn-lg btn-block">
                             Kembali ke halaman <b> Katalog Buku </b>
                         </button>
@@ -33,5 +33,5 @@
             </div>
         </div>
     </div>
-    
+
 @endsection

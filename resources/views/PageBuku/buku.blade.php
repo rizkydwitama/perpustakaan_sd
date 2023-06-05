@@ -5,97 +5,29 @@
     <div class="latest-added">
         <div class="heading">
             <h1> Katalog Buku </h1>
-            <div class="mb-3 searchButton">
-                <input type="nama" class="form-control" id="exampleFormControlInput1" placeholder="laravel">
-                <a href="#" class="btn btn-secondary"><i class="fa fa-search" aria-hidden="true"></i></a>
-                &nbsp;
-                <a href="{{route('tambahBuku')}}" class="btn btn-primary tombolTambah">Tambah</a>
-            </div>
+            <form action="">
+                <div class="mb-3 searchButton">
+                    <input type="text" class="form-control" id="search" name="search" placeholder="search...">
+                    <button class="btn btn-outline-secondary" type="submit" id="search" value="{{ request('search') }}"><i class="fa fa-search" aria-hidden="true"></i></button>
+                    &nbsp;
+                    <a href="{{route('tambahBuku')}}" class="btn btn-primary tombolTambah">Tambah</a>
+                </div>
+            </form>
         </div>
         <div class="latest-row" id="booknamesearch">
+            @foreach ($bukus as $buku)
             <div class="latest-col">
-                <div class="latest-img"> 
-                    <img src="{{asset('img/cover_buku.jpg')}}"> 
+                <div class="latest-img">
+                    <img src="{{ asset('storage/' . $buku->gambar) }}" alt="{{ $buku->judul_buku }}" class="img-fluid mt-3">
                 </div>
                 <div class="info">
-                    <a href="{{route('detailBuku')}}" >
-                        <h3> Judul Buku 1 </h3>
+                    <a href="detailBuku/{{ $buku->slug }}"  >
+                        <h3>{{ $buku->judul_buku }}</h3>
                     </a>
-                    <p> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat, voluptatibus. </p>
+                    <p>{{ $buku->pengarang }}</p>
                 </div>
             </div>
-            <div class="latest-col">
-                <div class="latest-img"> 
-                    <img src="{{asset('img/cover_buku.jpg')}}"> 
-                </div>
-                <div class="info">
-                    <h3> Judul Buku 2 </h3>
-                    <p> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat, voluptatibus. </p>
-                </div>
-            </div>
-            <div class="latest-col">
-                <div class="latest-img"> 
-                    <img src="{{asset('img/cover_buku.jpg')}}"> 
-                </div>
-                <div class="info">
-                    <h3> Judul Buku 3 </h3>
-                    <p> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat, voluptatibus. </p>
-                </div>
-            </div>
-            <div class="latest-col">
-                <div class="latest-img"> 
-                    <img src="{{asset('img/cover_buku.jpg')}}"> 
-                </div>
-                <div class="info">
-                    <h3> Judul Buku 4 </h3>
-                    <p> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat, voluptatibus. </p>
-                </div>
-            </div>
-            <div class="latest-col">
-                <div class="latest-img"> 
-                    <img src="{{asset('img/cover_buku.jpg')}}"> 
-                </div>
-                <div class="info">
-                    <h3> Judul Buku 5 </h3>
-                    <p> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat, voluptatibus. </p>
-                </div>
-            </div>
-            <div class="latest-col">
-                <div class="latest-img"> 
-                    <img src="{{asset('img/cover_buku.jpg')}}"> 
-                </div>
-                <div class="info">
-                    <h3> Judul Buku 6 </h3>
-                    <p> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat, voluptatibus. </p>
-                </div>
-            </div>
-            <div class="latest-col">
-                <div class="latest-img"> 
-                    <img src="{{asset('img/cover_buku.jpg')}}"> 
-                </div>
-                <div class="info">
-                    <h3> Judul Buku 7 </h3>
-                    <p> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat, voluptatibus. </p>
-                </div>
-            </div>
-            <div class="latest-col">
-                <div class="latest-img"> 
-                    <img src="{{asset('img/cover_buku.jpg')}}"> 
-                </div>
-                <div class="info">
-                    <h3> Judul Buku 8 </h3>
-                    <p> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat, voluptatibus. </p>
-                </div>
-            </div>
-            <div class="latest-col">
-                <div class="latest-img"> 
-                    <img src="{{asset('img/cover_buku.jpg')}}"> 
-                </div>
-                <div class="info">
-                    <h3> Judul Buku 9 </h3>
-                    <p> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat, voluptatibus. </p>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </div>
