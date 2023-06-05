@@ -4,9 +4,12 @@
 <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
 <link rel = "stylesheet" href = "https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
 <div class="container-fluid">
+	
+
 	<div class="row g-0 justify-content-end">
 		<div class="col-md-10" id="pinjam-card">
 			<div class="row justify-content-center">
+				
 				<div class="col-md-11" id="table-card">
 					<h2>Data Peminjaman</h2>
 					<div class="mb-3 searchButton">
@@ -16,6 +19,11 @@
 						<a href="{{ route('AddPinjam') }}" class="btn btn-primary tombolTambah">tambah</a>
 					</div>
 				</div>
+				@if (session()->has('success'))
+				<div class="alert alert-success col-md-11" role="alert">
+					{{ session('success') }}
+				</div>	
+				@endif
 			</div>
 			<div class="row justify-content-center">
 				<div class="col-md-11" id="table-content">
@@ -47,8 +55,8 @@
 								<td>Meminjam</td>
 								<td>
 									<a href="editPeminjam/{{ $pinjam->slug }}" class="btn btn-primary">edit</a>
-									<a href="/editPeminjam/{{ $pinjam->slug }}/kembalikan" class="btn btn-success">kembalikan</a>
-									<a href="/editPeminjam/{{ $pinjam->slug }}/hapus" class="btn btn-danger">Hapus</a>
+									<a href="/editPeminjam/{{ $pinjam->slug }}/kembalikan" class="btn btn-success" onclick="return confirm('Apakah buku sudah dikembalikan?')">kembalikan</a>
+									<a href="/editPeminjam/{{ $pinjam->slug }}/hapus" class="btn btn-danger" onclick="return confirm('Apakah Anda ingin menghapus data?')">Hapus</a>
 									
 								</td>
 							</tr>

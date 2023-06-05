@@ -17,14 +17,25 @@
   </head>
 
   <body class="text-center">
-    <form class="form-signin" method="post" action="/login">
+    <form class="form-signin" method="post" action="/login">      
       @csrf
-      <img class="mb-4" src="{{asset('img/logo_sd_darul_hikam.png')}}" alt="" width="125" height="125">
+      <img class="mb-4" src="{{asset('img/logo_sd_darul_hikam.png')}}" alt="" width="125" height="125">      
       <h1 class="h3 mb-3 font-weight-normal">Selamat Datang!</h1>
+      @if (session()->has('success'))
+				<div class="alert alert-success col-md-11" role="alert">
+					{{ session('success') }}
+				</div>	
+			@endif
+
+      @if (session()->has('loginError'))
+				<div class="alert alert-danger" role="alert">
+					{{ session('loginError') }}
+				</div>	
+			@endif
       <label for="inputUsername" class="sr-only">Nama Pengguna</label>
-      <input type="text" id="inputUsername" name="nama" class="form-control" placeholder="Nama Pengguna" required autofocus>
+      <input type="text" id="inputUsername" name="nama" class="form-control @error ('nama') is-invalid @enderror" placeholder="Nama Pengguna" autofocus required>
       <label for="inputPassword" class="sr-only">Kata Sandi</label>
-      <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Kata Sandi" required>
+      <input type="password" id="inputPassword" name="password" class="form-control @error ('password') is-invalid @enderror" placeholder="Kata Sandi" required>
       <div class="checkbox mb-3">
         <label>
           <input type="checkbox" value="remember-me"> Ingat saya

@@ -14,6 +14,11 @@
 						&nbsp;
 					</div>
 				</div>
+				@if (session()->has('success'))
+				<div class="alert alert-success col-md-11" role="alert">
+					{{ session('success') }}
+				</div>	
+				@endif
 			</div>
 			<div class="row justify-content-center">
 				<div class="col-md-11" id="table-content">
@@ -45,7 +50,7 @@
 								<td>
 									<a href="editPengembalian/{{ $pinjam->slug }}" class="btn btn-primary">edit</a>
 									<a href="editPengembalian/{{ $pinjam->slug }}/batal" class="btn btn-warning">batal</a>
-									<a href="editPengembalian/{{ $pinjam->slug }}/hapus" class="btn btn-danger">hapus</a>
+									<a href="editPengembalian/{{ $pinjam->slug }}/hapus" class="btn btn-danger" onclick="return confirm('Apakah Anda ingin menghapus data?')">hapus</a>
 								</td>
 							</tr>
 							@endif

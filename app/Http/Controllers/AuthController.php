@@ -21,12 +21,10 @@ class AuthController extends Controller
         if(Auth::attempt($credentials)){
             $request->session()->regenerate();
 
-            return redirect()->intended('/homepage');  
-        } else{
-            dd($request);
-        }
+            return redirect()->intended('/homepage')->with('success', 'Login Berhasil!');  
+        } 
 
-        return back()->with('loginError', 'Login Gagal');
+        return back()->with('loginError', 'Login Gagal!');
     }
 
 }

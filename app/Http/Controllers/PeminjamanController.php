@@ -44,7 +44,7 @@ class PeminjamanController extends Controller
         // dd($validatedData);
         Peminjaman::create($validatedData);
 
-        return redirect('/dataPeminjaman')->with('success', 'New Post has been added!');
+        return redirect('/dataPeminjaman')->with('success', 'Data Berhasil Ditambahkan!');
     }
 
     public function formEditPinjam(Peminjaman $pinjam)
@@ -83,7 +83,7 @@ class PeminjamanController extends Controller
         // dd($validatedData);
         Peminjaman::where('id', $pinjam->id)->update($rules);
 
-        return redirect('/dataPeminjaman')->with('success', 'New Post has been added!');
+        return redirect('/dataPeminjaman')->with('success', 'Data Peminjaman berhasil diedit!');
 
 
     }
@@ -95,7 +95,7 @@ class PeminjamanController extends Controller
         $data->tanggal_kembali_faktual = $data->updated_at;
         $data->save();
 
-        return redirect('/dataPeminjaman')->with('success', 'New Post has been added!');
+        return redirect('/dataPeminjaman')->with('success', 'Buku telah dikembalikan!');
     }
 
     public function hapus(Peminjaman $pinjam){

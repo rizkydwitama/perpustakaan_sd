@@ -54,7 +54,7 @@ class PengembalianController extends Controller
         // dd($validatedData);
         Peminjaman::where('id', $pinjam->id)->update($rules);
 
-        return redirect('/dataPengembalian')->with('success', 'New Post has been added!');
+        return redirect('/dataPengembalian')->with('success', 'Data Berhasil Diedit!');
 
 
     }
@@ -63,7 +63,7 @@ class PengembalianController extends Controller
         $data = Peminjaman::find($pinjam->id);
 
         $data->delete();
-        return redirect('/dataPengembalian')->with('success', 'Data Berhasil Dihapus');
+        return redirect('/dataPengembalian')->with('success', 'Data Berhasil Dihapus!');
 
     }
 
@@ -74,6 +74,6 @@ class PengembalianController extends Controller
         $data->tanggal_kembali_faktual = $data->tanggal_pengembalian;
         $data->save();
 
-        return redirect('/dataPengembalian')->with('success', 'New Post has been added!');
+        return redirect('/dataPengembalian')->with('success', 'Data Dikembalikan ke Halaman Peminjaman!');
     }
 }
