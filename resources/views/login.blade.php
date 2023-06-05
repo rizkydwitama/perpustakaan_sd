@@ -22,7 +22,7 @@
       <img class="mb-4" src="{{asset('img/logo_sd_darul_hikam.png')}}" alt="" width="125" height="125">      
       <h1 class="h3 mb-3 font-weight-normal">Selamat Datang!</h1>
       @if (session()->has('success'))
-				<div class="alert alert-success col-md-11" role="alert">
+				<div class="alert alert-success" role="alert">
 					{{ session('success') }}
 				</div>	
 			@endif

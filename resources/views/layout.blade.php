@@ -112,10 +112,17 @@
 
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fa fa-sign-out-alt"></i>
-              <p>
-                Keluar
-              </p>
+              <form action="/logout" method="post">
+                
+                <button type="submit">
+                  <i class="nav-icon fa fa-sign-out-alt"></i>
+                  <p>
+                    Keluar
+                  </p>
+                </button>
+              </form>
+            
+              
             </a>
           </li>
 
