@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('nomor_induk_anggota');
             $table->string('kelas');
             $table->integer('jumlah_pinjam');
-            $table->boolean('jenis_kelamin');
+            $table->string('jenis_kelamin');
             $table->timestamps();
         });
     }

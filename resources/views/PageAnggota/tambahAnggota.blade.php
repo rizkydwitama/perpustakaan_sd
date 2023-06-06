@@ -20,22 +20,42 @@
 						@csrf
                         <div class="mb-3">
 							<label for="nama_anggota" class="form-label">Nama</label>
-							<input type="text" name="nama_anggota" class="form-control" id="nama_anggota" required>
+							<input type="text" name="nama_anggota" class="form-control @error ('nama_anggota') is-invalid @enderror" id="nama_anggota" required autofocus value="{{ old('nama_anggota') }}">
+                            @error('nama_anggota')
+								<div class="invalid-feedback">
+									{{ $message }}
+								</div>
+							@enderror
 						</div>
 
 						<div class="mb-3">
 							<label for="nomor_induk_anggota" class="form-label">Nomor Induk Anggota</label>
-							<input type="text" name="nomor_induk_anggota" class="form-control" id="nomor_induk_anggota" required>
+							<input type="text" name="nomor_induk_anggota" class="form-control @error ('nomor_induk_anggota') is-invalid @enderror" id="nomor_induk_anggota" required value="{{ old('nomor_induk_anggota') }}">
+                            @error('nomor_induk_anggota')
+								<div class="invalid-feedback">
+									{{ $message }}
+								</div>
+							@enderror
 						</div>
 
 						<div class="mb-3">
 							<label for="kelas" class="form-label">Kelas</label>
-							<input type="text" name="kelas" class="form-control" id="kelas" required>
+							<input type="text" name="kelas" class="form-control @error ('kelas') is-invalid @enderror" id="kelas" required value="{{ old('kelas') }}">
+                            @error('kelas')
+								<div class="invalid-feedback">
+									{{ $message }}
+								</div>
+							@enderror
 						</div>
 
                         <div class="mb-3">
 							<label for="jumlah_pinjam" class="form-label">Jumlah Pinjam</label>
-							<input type="number" name="jumlah_pinjam" class="form-control" id="jumlah_pinjam" required>
+							<input type="number" name="jumlah_pinjam" class="form-control @error ('jumlah_pinjam') is-invalid @enderror" id="jumlah_pinjam" required value="{{ old('jumlah_pinjam') }}">
+                            @error('jumlah_pinjam')
+								<div class="invalid-feedback">
+									{{ $message }}
+								</div>
+							@enderror
 						</div>
 
 						<div class="mb-3">

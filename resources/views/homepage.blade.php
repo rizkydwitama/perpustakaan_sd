@@ -1,18 +1,18 @@
 @extends('layout')
 @section('content')
 <link rel="stylesheet" href="{{asset('css/homepage.css')}}">
- <div class="content-wrapper">
+<div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">
         @if (session()->has('success'))
             <div class="alert alert-success" role="alert">
               {{ session('success') }}
-            </div>	
+            </div>
         @endif
-        <div class="row mb-2">          
-          <div class="col-sm-6">           
-            <h1 class="m-0">Beranda</h1>            
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Beranda</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -32,7 +32,7 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>90</h3>
+                <h3>{{ $anggota }}</h3>
 
                 <p>Anggota Perpustakaan</p>
               </div>
@@ -47,7 +47,7 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>150</h3>
+                <h3>{{ $buku }}</h3>
 
                 <p>Katalog Buku</p>
               </div>
@@ -62,7 +62,7 @@
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3>10</h3>
+                <h3>{{ $peminjaman }}</h3>
 
                 <p>Data Peminjaman</p>
               </div>
@@ -97,7 +97,7 @@
         <div class="d-flex justify-content-center">
           <h2> Perpustakaan SD 1 Darul Hikam Bandung </h2>
         </div>
-        
+
         <div class="d-flex justify-content-center">
           <p> Alamat: Jl. Ir. H. Juanda 285 Bandung, Jawa Barat, Indonesia <p>
         </div>

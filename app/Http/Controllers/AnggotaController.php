@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Anggota;
+use App\Models\Peminjaman;
 use Illuminate\Http\Request;
 
 class AnggotaController extends Controller
