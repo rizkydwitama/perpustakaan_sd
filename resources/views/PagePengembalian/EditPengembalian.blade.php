@@ -22,29 +22,54 @@
 
 						<div class="mb-3">
 							<label for="exampleFormControlInput1" class="form-label">Judul Buku</label>
-							<input type="text" name="judul_buku" class="form-control" id="exampleFormControlInput1" value="{{ $pinjam->judul_buku }}">
+							<input type="text" name="judul_buku" class="form-control  @error ('judul_buku') is-invalid @enderror" id="exampleFormControlInput1" value="{{ $pinjam->judul_buku }}">
+							@error('judul_buku')
+								<div class="invalid-feedback">
+									{{ $message }}
+								</div>
+							@enderror
 						</div>
 
 						<div class="mb-3">
 							<label for="exampleFormControlInput1" class="form-label">Nama Peminjam</label>
-							<input type="text" name="nama_peminjam" class="form-control" id="exampleFormControlInput1" value="{{ $pinjam->nama_peminjam }}">
+							<input type="text" name="nama_peminjam" class="form-control @error ('nama_peminjam') is-invalid @enderror" id="exampleFormControlInput1" value="{{ $pinjam->nama_peminjam }}">
+							@error('nama_peminjam')
+								<div class="invalid-feedback">
+									{{ $message }}
+								</div>
+							@enderror
 						</div>
 
 						<div class="mb-3">
 							<label for="exampleFormControlInput1" class="form-label">Nomor Induk Siswa</label>
-							<input type="text" name="nomor_induk_peminjam" class="form-control" id="exampleFormControlInput1" value="{{ $pinjam->nomor_induk_peminjam }}">
+							<input type="text" name="nomor_induk_peminjam" class="form-control @error ('nomor_induk_peminjam') is-invalid @enderror" id="exampleFormControlInput1" value="{{ $pinjam->nomor_induk_peminjam }}">
+							@error('nomor_induk_peminjam')
+								<div class="invalid-feedback">
+									{{ $message }}
+								</div>
+							@enderror
 						</div>
 
 						<div class="mb-3">
 							<label for="exampleFormControlInput1" class="form-label">Tanggal Pinjam</label>
 							<br>
-							<input type="text" name="tanggal_peminjaman" class="form-control datepicker" id="tglPinjam" value="{{ $pinjam->tanggal_peminjaman }}">
+							<input type="text" name="tanggal_peminjaman" class="form-control datepicker @error ('tanggal_peminjaman') is-invalid @enderror" id="tglPinjam" value="{{ $pinjam->tanggal_peminjaman }}">
+							@error('tanggal_peminjaman')
+								<div class="invalid-feedback">
+									{{ $message }}
+								</div>
+							@enderror
 						</div>
 
 						<div class="mb-3">
 							<label for="exampleFormControlInput1" class="form-label">Tanggal Kembali</label>
 							<br>
-							<input type="text" name="tanggal_kembali_faktual" class="form-control datepicker" id="tglKembali" value="{{ $pinjam->tanggal_kembali_faktual }}">
+							<input type="text" name="tanggal_kembali_faktual" class="form-control datepicker @error ('tanggal_kembali_faktual') is-invalid @enderror" id="tglKembali" value="{{ $pinjam->tanggal_kembali_faktual }}">
+							@error('tanggal_kembali_faktual')
+								<div class="invalid-feedback">
+									{{ $message }}
+								</div>
+							@enderror
 						</div>
 
 						<button type="submit" class="btn btn-outline-primary">Edit Data</button>

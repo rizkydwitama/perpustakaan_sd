@@ -12,12 +12,15 @@
 				
 				<div class="col-md-11" id="table-card">
 					<h2>Data Peminjaman</h2>
+					<form action="/dataPeminjaman">
 					<div class="mb-3 searchButton">
-						<input type="nama" class="form-control" id="exampleFormControlInput1" placeholder="adam warlock">
-						<a href="#" class="btn btn-secondary"><i class="fa fa-search" aria-hidden="true"></i></a>
+
+						<input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Search.." name="search" value="{{ request('search') }}">
+						<button class="btn btn-secondary" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
 						&nbsp;
 						<a href="{{ route('AddPinjam') }}" class="btn btn-primary tombolTambah">tambah</a>
 					</div>
+					</form>
 				</div>
 				@if (session()->has('success'))
 				<div class="alert alert-success col-md-11" role="alert">

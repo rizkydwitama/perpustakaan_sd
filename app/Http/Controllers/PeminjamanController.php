@@ -13,10 +13,21 @@ class PeminjamanController extends Controller
 {
     
     public function viewDataPinjam()
-    {
+    {   
+        $pinjams = Peminjaman::latest();
+
+        if(request('search')){
+            $pinjams->where('judul_buku', 'like', '%'.request('search').'%')
+                    ->orWhere('nama_peminjam', 'like', '%'.request('search').'%')
+                    ->orWhere('nomor_induk_peminjam', 'like', '%'.request('search').'%')
+                    ->orWhere('tanggal_peminjaman', 'like', '%'.request('search').'%')
+                    ->orWhere('tanggal_pengembalian', 'like', '%'.request('search').'%');
+        }
+
 
         return view('PagePeminjaman.dataPeminjaman', [
-            "pinjams" => Peminjaman::all()
+            
+            "pinjams" => $pinjams->get()
         ]);
     }
 
@@ -30,7 +41,7 @@ class PeminjamanController extends Controller
         $validatedData = $request->validate([
             'judul_buku' => 'required|max:255',
             'nama_peminjam' => 'required|max:255',
-            'nomor_induk_peminjam' => 'required',
+            'nomor_induk_peminjam' => 'required|numeric',
             'tanggal_pengembalian' => 'required',
             'tanggal_peminjaman' => 'required'
             
@@ -57,31 +68,34 @@ class PeminjamanController extends Controller
 
     public function update(Request $request, Peminjaman $pinjam){
         
-        $rules = [
-            'judul_buku' => $request->judul_buku,
-            'nama_peminjam' => $request->nama_peminjam,
-            'nomor_induk_peminjam' => $request->nomor_induk_peminjam,
-        ];
+        $validatedData = $request->validate([
+            'judul_buku' => 'required|max:255',
+            'nama_peminjam' => 'required|max:255',
+            'nomor_induk_peminjam' => 'required|numeric',
+            'tanggal_pengembalian' => 'required',
+            'tanggal_peminjaman' => 'required'
+            
+        ]);
 
         if($request->tanggal_peminjaman != $pinjam->tanggal_peminjaman ){
             $date_pinjam = Carbon::createFromFormat('m/d/Y', $request->tanggal_peminjaman)->format('Y-m-d');
-            $rules['tanggal_peminjaman'] = $date_pinjam;
+            $validatedData['tanggal_peminjaman'] = $date_pinjam;
         } else{
-            $rules['tanggal_peminjaman'] = $pinjam->tanggal_peminjaman;
+            $validatedData['tanggal_peminjaman'] = $pinjam->tanggal_peminjaman;
         }
         
         if($request->tanggal_pengembalian !=$pinjam->tanggal_pengembalian){
             $date_kembali = Carbon::createFromFormat('m/d/Y', $request->tanggal_pengembalian)->format('Y-m-d');
-            $rules['tanggal_pengembalian'] = $date_kembali;
+            $validatedData['tanggal_pengembalian'] = $date_kembali;
         } else{
-            $rules['tanggal_pengembalian'] = $pinjam->tanggal_pengembalian;
+            $validatedData['tanggal_pengembalian'] = $pinjam->tanggal_pengembalian;
         }
     
         
 
         // $validatedData = $request->validate($rules);
         // dd($validatedData);
-        Peminjaman::where('id', $pinjam->id)->update($rules);
+        Peminjaman::where('id', $pinjam->id)->update($validatedData);
 
         return redirect('/dataPeminjaman')->with('success', 'Data Peminjaman berhasil diedit!');
 
