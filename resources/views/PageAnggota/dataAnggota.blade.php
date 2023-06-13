@@ -44,7 +44,7 @@
                                 <form action="{{ route('hapusAnggota', $anggota->id) }}" method="POST" class="d-inline">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger">Hapus</button>
+                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah Anda ingin menghapus data?')">Hapus</button>
                                 </form>
                                 </td>
 

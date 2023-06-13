@@ -22,7 +22,7 @@
                     <form action="{{ route('hapusBuku', $buku->slug) }}" method="POST" class="d-inline">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger btn-lg btn-block">Hapus Buku</button>
+                        <button type="submit" class="btn btn-danger btn-lg btn-block" onclick="return confirm('Apakah Anda ingin menghapus data?')">Hapus Buku</button>
                     </form>
                     <a href="/buku">
                         <button type="button" class="btn btn-secondary btn-lg btn-block">
