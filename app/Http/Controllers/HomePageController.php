@@ -15,7 +15,8 @@ class HomePageController extends Controller
         return view('homepage',[
             'anggota' => Anggota::count(),
             'buku' => Buku::count(),
-            'peminjaman' => Peminjaman::count()
+            'peminjaman' => Peminjaman::all()->where('status_peminjaman', 1)->count(),
+            'pengembalian' => Peminjaman::all()->where('status_peminjaman', 0)->count()
         ]);
     }
 }
