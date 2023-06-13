@@ -77,7 +77,7 @@
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>5</h3>
+                <h3>{{ $pengembalian }}</h3>
 
                 <p>Data Pengembalian</p>
               </div>
