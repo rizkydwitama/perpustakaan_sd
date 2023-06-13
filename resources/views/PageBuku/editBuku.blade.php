@@ -47,7 +47,7 @@
 
                         <div class="mb-3">
 							<label for="jumlah_buku" class="form-label">Jumlah Buku</label>
-							<input type="text" name="jumlah_buku" class="form-control" id="jumlah_buku" value="{{ $buku->jumlah_buku}}">
+							<input type="number" min="0" name="jumlah_buku" class="form-control" id="jumlah_buku" value="{{ $buku->jumlah_buku}}">
 						</div>
 
                         <div class="mb-3">

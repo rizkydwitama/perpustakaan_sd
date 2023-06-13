@@ -20,7 +20,7 @@
 						@csrf
 						<div class="mb-3">
 							<label for="judul_buku" class="form-label">Judul Buku</label>
-							<input type="text" name="judul_buku" class="form-control @error ('judul_buku') is-invalid @enderror" id="judul_buku" required autofocus value="{{ old('judul_buku') }}>
+							<input type="text" name="judul_buku" class="form-control @error ('judul_buku') is-invalid @enderror" id="judul_buku" required autofocus value="{{ old('judul_buku') }}">
                             @error('judul_buku')
 								<div class="invalid-feedback">
 									{{ $message }}
