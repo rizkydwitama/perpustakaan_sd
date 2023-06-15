@@ -47,14 +47,14 @@ class PengembalianController extends Controller
         ]);
 
         if($request->tanggal_peminjaman != $pinjam->tanggal_peminjaman ){
-            $date_pinjam = Carbon::createFromFormat('m/d/Y', $request->tanggal_peminjaman)->format('Y-m-d');
+            $date_pinjam = Carbon::createFromFormat('d/m/Y', $request->tanggal_peminjaman)->format('Y-m-d');
             $validatedData['tanggal_peminjaman'] = $date_pinjam;
         } else{
             $validatedData['tanggal_peminjaman'] = $pinjam->tanggal_peminjaman;
         }
         
         if($request->tanggal_kembali_faktual !=$pinjam->tanggal_kembali_faktual){
-            $date_kembali = Carbon::createFromFormat('m/d/Y', $request->tanggal_kembali_faktual)->format('Y-m-d');
+            $date_kembali = Carbon::createFromFormat('d/m/Y', $request->tanggal_kembali_faktual)->format('Y-m-d');
             $validatedData['tanggal_kembali_faktual'] = $date_kembali;
         } else{
             $validatedData['tanggal_kembali_faktual'] = $pinjam->tanggal_kembali_faktual;

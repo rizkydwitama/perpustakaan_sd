@@ -57,8 +57,8 @@
 								<td>{{ date('d-M-Y', strtotime($pinjam->tanggal_pengembalian)) }}</td>
 								<td>Meminjam</td>
 								<td>
-									<a href="editPeminjam/{{ $pinjam->slug }}" class="btn btn-primary">edit</a>
-									<a href="/editPeminjam/{{ $pinjam->slug }}/kembalikan" class="btn btn-success" onclick="return confirm('Apakah buku sudah dikembalikan?')">kembalikan</a>
+									<a href="editPeminjam/{{ $pinjam->slug }}" class="btn btn-success">edit</a>
+									<a href="/editPeminjam/{{ $pinjam->slug }}/kembalikan" class="btn btn-warning" onclick="return confirm('Apakah buku sudah dikembalikan?')">kembalikan</a>
 									<a href="/editPeminjam/{{ $pinjam->slug }}/hapus" class="btn btn-danger" onclick="return confirm('Apakah Anda ingin menghapus data?')">Hapus</a>
 									
 								</td>

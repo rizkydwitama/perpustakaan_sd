@@ -47,8 +47,8 @@ class PeminjamanController extends Controller
             
         ]);
 
-        $date_pinjam = Carbon::createFromFormat('m/d/Y', $request->tanggal_peminjaman)->format('Y-m-d');
-        $date_kembali = Carbon::createFromFormat('m/d/Y', $request->tanggal_pengembalian)->format('Y-m-d');
+        $date_pinjam = Carbon::createFromFormat('d/m/Y', $request->tanggal_peminjaman)->format('Y-m-d');
+        $date_kembali = Carbon::createFromFormat('d/m/Y', $request->tanggal_pengembalian)->format('Y-m-d');
         $validatedData['tanggal_peminjaman'] = $date_pinjam;
         $validatedData['tanggal_pengembalian'] = $date_kembali;
 
@@ -78,14 +78,14 @@ class PeminjamanController extends Controller
         ]);
 
         if($request->tanggal_peminjaman != $pinjam->tanggal_peminjaman ){
-            $date_pinjam = Carbon::createFromFormat('m/d/Y', $request->tanggal_peminjaman)->format('Y-m-d');
+            $date_pinjam = Carbon::createFromFormat('d/m/Y', $request->tanggal_peminjaman)->format('Y-m-d');
             $validatedData['tanggal_peminjaman'] = $date_pinjam;
         } else{
             $validatedData['tanggal_peminjaman'] = $pinjam->tanggal_peminjaman;
         }
         
         if($request->tanggal_pengembalian !=$pinjam->tanggal_pengembalian){
-            $date_kembali = Carbon::createFromFormat('m/d/Y', $request->tanggal_pengembalian)->format('Y-m-d');
+            $date_kembali = Carbon::createFromFormat('d/m/Y', $request->tanggal_pengembalian)->format('Y-m-d');
             $validatedData['tanggal_pengembalian'] = $date_kembali;
         } else{
             $validatedData['tanggal_pengembalian'] = $pinjam->tanggal_pengembalian;
