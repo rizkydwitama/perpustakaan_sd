@@ -18,7 +18,7 @@
             @foreach ($bukus as $buku)
             <div class="latest-col">
                 <div class="latest-img">
-                    <img src="{{ asset('storage/' . $buku->gambar) }}" alt="{{ $buku->judul_buku }}" class="img-fluid mt-3">
+                    <img src="{{ asset($buku->gambar) }}" alt="{{ $buku->judul_buku }}" class="img-fluid mt-3">
                 </div>
                 <div class="info">
                     <a href="detailBuku/{{ $buku->slug }}"  >

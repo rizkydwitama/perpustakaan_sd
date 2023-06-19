@@ -22,7 +22,29 @@
                     <form action="{{ route('hapusBuku', $buku->slug) }}" method="POST" class="d-inline">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger btn-lg btn-block" onclick="return confirm('Apakah Anda ingin menghapus data?')">Hapus Buku</button>
+                        <button type="button" class="btn btn-danger btn-lg btn-block" data-toggle="modal" data-target="#exampleModal">
+                            Hapus Buku
+                        </button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Hapus Buku</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                </div>
+                                <div class="modal-body">
+                                    Apakah yakin ingin menghapus buku ini?
+                                </div>
+                                <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
+                                <button type="submit" class="btn btn-danger">Ya</button>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
                     </form>
                     <a href="/buku">
                         <button type="button" class="btn btn-secondary btn-lg btn-block">
@@ -33,5 +55,4 @@
             </div>
         </div>
     </div>
-
 @endsection

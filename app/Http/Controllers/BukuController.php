@@ -43,8 +43,11 @@ class BukuController extends Controller
             'kolasi' => 'required|max:255',
             'no_class' => 'required|max:255',
         ]);
-        if ($request->file('gambar')) {
-            $validatedData['gambar'] = $request->file('gambar')->store('post-gambar');
+        if ($request->hasFile('gambar')) {
+            $image = $validatedData['gambar'];
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $path = $image->storeAs('public/images', $filename);
+            $validatedData['gambar'] = 'storage/images/' . $filename;
         } else {
             $validatedData['gambar'] = 'post-gambar/no-cover.jpg';
         }

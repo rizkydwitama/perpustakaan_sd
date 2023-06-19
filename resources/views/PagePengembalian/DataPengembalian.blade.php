@@ -51,11 +51,50 @@
 								<td>{{ date('d-M-Y', strtotime($pinjam->tanggal_kembali_faktual)) }}</td>
 								<td>Dikembalikan</td>
 								<td>
-									<a href="editPengembalian/{{ $pinjam->slug }}" class="btn btn-primary">edit</a>
-									<a href="editPengembalian/{{ $pinjam->slug }}/batal" class="btn btn-warning">batal</a>
-									<a href="editPengembalian/{{ $pinjam->slug }}/hapus" class="btn btn-danger" onclick="return confirm('Apakah Anda ingin menghapus data?')">hapus</a>
+									<a href="editPengembalian/{{ $pinjam->slug }}" class="btn btn-primary">Edit</a>
+									<a class="btn btn-warning" data-toggle="modal" data-target="#exampleModal2">Batal</a>
+									<a class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">Hapus</a>
 								</td>
 							</tr>
+							<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+								<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<div class="modal-header">
+									<h5 class="modal-title" id="exampleModalLabel">Hapus Data Pengembalian</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+									</div>
+									<div class="modal-body">
+										Apakah yakin ingin menghapus data pengembalian ini?
+									</div>
+									<div class="modal-footer">
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
+									<a href="editPengembalian/{{ $pinjam->slug }}/hapus" class="btn btn-danger">Ya</a>
+									</div>
+								</div>
+								</div>
+							</div>
+
+							<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+								<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<div class="modal-header">
+									<h5 class="modal-title" id="exampleModalLabel" > Batalkan Pengembalian Buku</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+									</div>
+									<div class="modal-body">
+										Apakah yakin ingin membatalkan pengembalian buku?
+									</div>
+									<div class="modal-footer">
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
+									<a href="editPengembalian/{{ $pinjam->slug }}/batal" class="btn btn-danger">Ya</a>
+									</div>
+								</div>
+								</div>
+							</div>
 							@endif
 							@endforeach
 						</tbody>
