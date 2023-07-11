@@ -90,7 +90,7 @@
 									</div>
 									<div class="modal-footer">
 									<button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
-									<a href="editPengembalian/{{ $pinjam->slug }}/batal" class="btn btn-danger">Ya</a>
+									<a href="editPengembalian/{{ $pinjam->slug }}/batal" class="btn btn-warning">Ya</a>
 									</div>
 								</div>
 								</div>
