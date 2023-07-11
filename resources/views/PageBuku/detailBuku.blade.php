@@ -4,7 +4,7 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <img src="{{ asset('storage/' . $buku->gambar) }}" alt="{{ $buku->judul_buku }}">
+                    <img src="{{ asset($buku->gambar) }}" alt="{{ $buku->judul_buku }}">
                 </div>
                 <div class="col">
                     <h1> {{ $buku->judul_buku }}</h1>
