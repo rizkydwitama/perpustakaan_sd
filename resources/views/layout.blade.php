@@ -56,7 +56,12 @@
           <img src="{{asset('lte/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Admin</a>
+          @if(Auth::guard('anggota')->check())
+            <a href="#" class="d-block">{{ Auth::guard('anggota')->user()->nama_anggota }}</a>
+          @else
+            <a href="#" class="d-block">Admin</a>
+
+          @endif
         </div>
       </div>
 
@@ -65,24 +70,25 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item">
-            <a href="{{ route('homepage') }}" class="nav-link {{ Request::is('homepage')? 'active' : '' }}">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Beranda
-              </p>
-            </a>
-          </li>
+          @if(Auth::guard('user')->check())
+            <li class="nav-item">
+              <a href="{{ route('homepage') }}" class="nav-link {{ Request::is('homepage')? 'active' : '' }}">
+                <i class="nav-icon fas fa-tachometer-alt"></i>
+                <p>
+                  Beranda
+                </p>
+              </a>
+            </li>
 
-          <li class="nav-item">
-            <a href="{{route('dataAnggota')}}" class="nav-link {{ Request::is('dataAnggota')? 'active' : '' }}">
-              <i class="nav-icon fa fa-address-book" aria-hidden="true"></i>
-              <p>
-                Data Anggota
-              </p>
-            </a>
-          </li>
-
+            <li class="nav-item">
+              <a href="{{route('dataAnggota')}}" class="nav-link {{ Request::is('dataAnggota')? 'active' : '' }}">
+                <i class="nav-icon fa fa-address-book" aria-hidden="true"></i>
+                <p>
+                  Data Anggota
+                </p>
+              </a>
+            </li>
+          @endif
           <li class="nav-item">
             <a href="{{ route('buku') }}" class="nav-link {{ Request::is('buku')? 'active' : '' }}">
               <i class="nav-icon fa fa-light fa-book" aria-hidden="true"></i>
@@ -100,7 +106,7 @@
               </p>
             </a>
           </li>
-
+          @if(Auth::guard('user')->check())
           <li class="nav-item">
             <a href="{{ route('DataKembali') }}" class="nav-link {{ Request::is('dataPengembalian')? 'active' : '' }}">
               <i class="nav-icon fa fa-database"></i>
@@ -109,7 +115,7 @@
               </p>
             </a>
           </li>
-
+          @endif
           <li class="nav-item">
             <a href="#" class="nav-link">
               <form action="/logout" method="post">

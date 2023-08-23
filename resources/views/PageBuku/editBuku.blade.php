@@ -29,6 +29,21 @@
 							<input type="text" name="pengarang" class="form-control" id="pengarang" value="{{ $buku->pengarang }}">
 						</div>
 
+						<div class="mb-3">
+							<label for="category_id" class="form-label">Category</label>
+							<select class="form-control" name="category_id" id="category_id">
+							  @foreach ($categories as $category)
+							  @if (old('category_id', $buku->category_id) == $category->id)
+								  
+							  <option value="{{ $category->id }}" selected>{{ $category->name }}</option>
+							  @else
+							  <option value="{{ $category->id }}">{{ $category->name }}</option>
+							  
+							  @endif
+							  @endforeach
+							</select>
+						</div>
+
                         <div class="mb-3">
 							<label for="impresium" class="form-label">Impresium</label>
 							<input type="text" name="impresium" class="form-control" id="impresium" value="{{ $buku->impresium }}">

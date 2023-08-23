@@ -14,6 +14,17 @@
                     <h5> <b> Kolasi: </b> {{ $buku->kolasi }} </h5>
                     <h5> <b> Jumlah Buku: </b> {{ $buku->jumlah_buku }} </h5>
                     <h5> <b> Nomor Class: </b> {{ $buku->no_class}} </h5>
+                    {{-- <a href="{{ route('AddPinjam') }}" class="btn btn-primary tombolTambah">tambah</a> --}}
+
+                    @if (Auth::guard('anggota')->check())
+                        
+                        <a href="/addPeminjam?slugBuku={{ $buku->slug }}">
+                            <button type="button" class="btn btn-success btn-lg btn-block">
+                                Pinjam Buku
+                            </button>
+                        </a>
+                    @else
+                        
                     <a href="editBuku/{{ $buku->slug }}">
                         <button type="button" class="btn btn-success btn-lg btn-block">
                             Edit Buku
@@ -46,6 +57,7 @@
                             </div>
                         </div>
                     </form>
+                    @endif
                     <a href="/buku">
                         <button type="button" class="btn btn-secondary btn-lg btn-block">
                             Kembali ke halaman <b> Katalog Buku </b>

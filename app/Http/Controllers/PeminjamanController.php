@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Peminjaman;
+use App\Models\Anggota;
+use App\Models\Buku;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Storage;
@@ -14,7 +17,12 @@ class PeminjamanController extends Controller
     
     public function viewDataPinjam()
     {   
-        $pinjams = Peminjaman::latest();
+        if(Auth::guard('anggota')->check()){
+            $pinjams = Peminjaman::where('nomor_induk_peminjam', Auth::guard('anggota')->user()->nomor_induk_anggota);
+        }else{
+            $pinjams = Peminjaman::latest();
+
+        }
 
         if(request('search')){
             $pinjams->where('judul_buku', 'like', '%'.request('search').'%')
@@ -31,10 +39,18 @@ class PeminjamanController extends Controller
         ]);
     }
 
-    public function formAddPinjam()
+    public function formAddPinjam(Request $request)
     {
+        if($request->slugBuku!=null){
+            $slugBuku = $request->slugBuku;
+            return view('PagePeminjaman.addPeminjam',[
+                "slugBuku" => $slugBuku
+            ]);
+        }
 
-        return view('PagePeminjaman.addPeminjam');
+        return view('PagePeminjaman.addPeminjam',[
+            "slugBuku"=> null
+        ]);
     }
 
     public function store(Request $request){
@@ -51,6 +67,14 @@ class PeminjamanController extends Controller
         $date_kembali = Carbon::createFromFormat('d/m/Y', $request->tanggal_pengembalian)->format('Y-m-d');
         $validatedData['tanggal_peminjaman'] = $date_pinjam;
         $validatedData['tanggal_pengembalian'] = $date_kembali;
+        // dd($validatedData);
+        $buku = Buku::where('slug', $request->slugBuku)->get()[0];
+        $buku->jumlah_buku -= 1;
+        $buku->save();
+
+        $siswa = Anggota::where('nomor_induk_anggota', $request->nomor_induk_peminjam)->get()[0];
+        $siswa->jumlah_pinjam += 1;
+        $siswa->save();
 
         // dd($validatedData);
         Peminjaman::create($validatedData);
@@ -107,7 +131,19 @@ class PeminjamanController extends Controller
         $data = Peminjaman::find($pinjam->id);
         $data->status_peminjaman = false;
         $data->tanggal_kembali_faktual = $data->updated_at;
+       
+        $buku = Buku::where('slug', $data->slug)->get()[0];
+        $buku->jumlah_buku += 1;
+        $buku->save();
+        
+        $siswa = Anggota::where('nomor_induk_anggota', $data->nomor_induk_peminjam)->get()[0];
+        $siswa->jumlah_pinjam -= 1;
+        $siswa->save();
+
         $data->save();
+
+
+
 
         return redirect('/dataPeminjaman')->with('success', 'Buku telah dikembalikan!');
     }

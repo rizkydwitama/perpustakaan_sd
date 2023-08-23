@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\Models\Peminjaman;
+use App\Models\Anggota;
+use App\Models\Buku;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Validator;
@@ -59,9 +61,6 @@ class PengembalianController extends Controller
         } else{
             $validatedData['tanggal_kembali_faktual'] = $pinjam->tanggal_kembali_faktual;
         }
-    
-        
-
         // $validatedData = $request->validate($validatedData);
         // dd($validatedData);
         Peminjaman::where('id', $pinjam->id)->update($validatedData);

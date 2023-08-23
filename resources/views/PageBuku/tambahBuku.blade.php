@@ -42,7 +42,19 @@
 								</div>
 							@enderror
                         </div>
-
+						<div class="mb-3">
+							<label for="category_id" class="form-label">Category</label>
+							<select class="form-control" name="category_id" id="category_id" aria-label="Default select example">
+							<option value="" selected> </option>
+							  @foreach ($categories as $category)
+							  @if (old('category_id') == $category->id)  
+							  	<option value="{{ $category->id }}" selected>{{ $category->name }}</option>
+							  @else
+							  	<option value="{{ $category->id }}">{{ $category->name }}</option>
+							  @endif
+							  @endforeach
+							</select>
+						</div>	
                         <div class="mb-3">
 							<label for="impresium" class="form-label">Impresium</label>
 							<input type="text" name="impresium" class="form-control @error ('impresium') is-invalid @enderror" id="impresium" required value="{{ old('impresium') }}">

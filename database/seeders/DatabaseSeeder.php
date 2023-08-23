@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Category;
 
 class DatabaseSeeder extends Seeder
 {
@@ -29,6 +30,20 @@ class DatabaseSeeder extends Seeder
             'nama' => 'Admin03',
             'email' => 'admin03@gmail.com',
             'password' => Hash::make('admin03')
+        ]);
+
+
+        Category::create([
+            'name' => 'Agama',
+            'slug' => 'agama'
+        ]);
+        Category::create([
+            'name' => 'Pendidikan',
+            'slug' => 'pendidikan'
+        ]);
+        Category::create([
+            'name' => 'Hiburan',
+            'slug' => 'hiburan'
         ]);
 
         \App\Models\Peminjaman::factory(3)->create();

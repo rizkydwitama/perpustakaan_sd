@@ -18,7 +18,9 @@
 						<input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Search.." name="search" value="{{ request('search') }}">
 						<button class="btn btn-secondary" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
 						&nbsp;
-						<a href="{{ route('AddPinjam') }}" class="btn btn-primary tombolTambah">tambah</a>
+						@if(Auth::guard('user')->check())
+							<a href="{{ route('AddPinjam') }}" class="btn btn-primary tombolTambah">tambah</a>
+						@endif
 					</div>
 					</form>
 				</div>
@@ -57,10 +59,17 @@
 								<td>{{ date('d-M-Y', strtotime($pinjam->tanggal_pengembalian)) }}</td>
 								<td>Meminjam</td>
 								<td>
-									<a href="editPeminjam/{{ $pinjam->slug }}" class="btn btn-success">Edit</a>
-									<a class="btn btn-warning" data-toggle="modal" data-target="#exampleModal2">Kembalikan</a>
-									<a class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">Hapus</a>
+									@if(Auth::guard('user')->check())
+										<a href="editPeminjam/{{ $pinjam->slug }}" class="btn btn-success">Edit</a>
+									@endif
 
+
+									<a class="btn btn-warning" data-toggle="modal" data-target="#exampleModal2">Kembalikan</a>
+
+
+									@if(Auth::guard('user')->check())
+										<a class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">Hapus</a>
+									@endif
 									
 								</td>
 							</tr>

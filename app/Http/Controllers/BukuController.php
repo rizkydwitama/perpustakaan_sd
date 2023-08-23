@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Buku;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Cviebrock\EloquentSluggable\Services\SlugService;
@@ -11,12 +12,21 @@ class BukuController extends Controller
 {
     public function ViewBuku(Request $request)
     {
+        $bukus = Buku::all();
 
+        if($request->category){
+            $bukus = Buku::where('category_id', $request->input('category'))->get();
+            // dd( $request->input('category'));
+
+        }
         $search = $request->input('search');
-        $bukus = Buku::where('judul_buku', 'like', '%' . $search . '%')->get();
+        if($search !=null){
+            $bukus = Buku::where('judul_buku', 'like', '%' . $search . '%')->get();
 
+        }
         return view('PageBuku.buku', [
-            'bukus' => $bukus
+            'bukus' => $bukus,
+            'categories' => Category::all()
         ]);
     }
 
@@ -29,13 +39,17 @@ class BukuController extends Controller
 
     public function ViewTambahBuku()
     {
-        return view('PageBuku.tambahBuku');
+        return view('PageBuku.tambahBuku',[
+            'categories' => Category::all()
+        ]);
     }
 
     public function store(Request $request){
+        // dd($request);
         $validatedData = $request->validate([
             'judul_buku' => 'required|max:255',
             'pengarang' => 'required|max:255',
+            'category_id' => 'required',
             'impresium' => 'required|max:255',
             'ISBN' => 'required|max:255',
             'gambar' => 'image|file|max:2048',
@@ -51,7 +65,6 @@ class BukuController extends Controller
         } else {
             $validatedData['gambar'] = 'post-gambar/no-cover.jpg';
         }
-
         Buku::create($validatedData);
         return redirect('/buku')->with('success', 'Buku berhasil ditambahkan!');
     }
@@ -59,7 +72,8 @@ class BukuController extends Controller
     public function ViewEditBuku(Buku $buku)
     {
         return view('PageBuku.editBuku', [
-            'buku' => $buku
+            'buku' => $buku,
+            'categories' => Category::all()
         ]);
     }
 
@@ -68,6 +82,7 @@ class BukuController extends Controller
         $rules = [
             'judul_buku' => 'required|max:255',
             'pengarang' => 'required|max:255',
+            'category_id' => 'required',
             'impresium' => 'required|max:255',
             'ISBN' => 'required|max:255',
             'gambar' => 'image|file|max:2048',

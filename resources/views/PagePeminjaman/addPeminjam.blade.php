@@ -32,6 +32,12 @@
 							<label for="slug" class="form-label">slug</label>
 							<input type="text" name="slug" class="form-control" id="slug">
 						</div>
+						@if($slugBuku)
+						<div class="mb-3" hidden>
+							<label for="slugBuku" class="form-label">slugBuku</label>
+							<input type="text" value="{{ $slugBuku }}" name="slugBuku" class="form-control" id="slugBuku">
+						</div>
+						@endif
 
 						<div class="mb-3">
 							<label for="nama_peminjam" class="form-label">Nama Peminjam</label>

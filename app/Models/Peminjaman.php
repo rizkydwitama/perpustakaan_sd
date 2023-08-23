@@ -22,5 +22,9 @@ class Peminjaman extends Model
         ];
     }
 
+    public function anggota(){
+        return $this->belongsTo(Anggota::class);
+    }
+
 
 }
