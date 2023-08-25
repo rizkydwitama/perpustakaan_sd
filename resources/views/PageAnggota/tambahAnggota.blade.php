@@ -67,7 +67,7 @@
 							@enderror
 						</div>
 
-						<div class="mb-3">
+						{{-- <div class="mb-3">
 							<label for="jenis_kelamin" class="form-label">Jenis Kelamin</label>
 							<br>
 							<input type="radio" name="jenis_kelamin" id="laki_laki" value="Laki-Laki">
@@ -75,7 +75,7 @@
 							<br>
 							<input type="radio" name="jenis_kelamin" id="perempuan" value="Perempuan">
 							<label class="form-check-label" for="perempuan"> Perempuan </label>
-						</div>
+						</div> --}}
 
 						<button type="submit" class="btn btn-outline-primary">Tambah Anggota</button>
 					</form>

@@ -6,6 +6,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Category;
+use App\Models\Anggota;
 
 class DatabaseSeeder extends Seeder
 {
@@ -47,6 +48,11 @@ class DatabaseSeeder extends Seeder
         ]);
 
         \App\Models\Peminjaman::factory(3)->create();
+
+        // Anggota::create([
+        //     'name' => 'Hiburan',
+        //     'slug' => 'hiburan'
+        // ]);
 
     }
 }

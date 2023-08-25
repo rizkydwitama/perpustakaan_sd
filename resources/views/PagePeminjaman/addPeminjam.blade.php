@@ -45,7 +45,12 @@
 
 						<div class="mb-3">
 							<label for="nama_peminjam" class="form-label">Nama Peminjam</label>
+							@if(Auth::guard('anggota')->check())
+							<input type="text" name="nama_peminjam" class="form-control @error ('nama_peminjam') is-invalid @enderror" id="nama_peminjam" value="{{ Auth::guard('anggota')->user()->nama_anggota }}">
+							@else
 							<input type="text" name="nama_peminjam" class="form-control @error ('nama_peminjam') is-invalid @enderror" id="nama_peminjam">
+
+							@endif
 							@error('nama_peminjam')
 								<div class="invalid-feedback">
 									{{ $message }}
@@ -55,7 +60,12 @@
 
 						<div class="mb-3">
 							<label for="nomor_induk_peminjam" class="form-label">Nomor Induk Siswa</label>
+							@if(Auth::guard('anggota')->check())
+							<input type="text" name="nomor_induk_peminjam" class="form-control @error ('nomor_induk_peminjam') is-invalid @enderror" id="nomor_induk_peminjam" value="{{ Auth::guard('anggota')->user()->nomor_induk_anggota }}">
+							@else
 							<input type="text" name="nomor_induk_peminjam" class="form-control @error ('nomor_induk_peminjam') is-invalid @enderror" id="nomor_induk_peminjam">
+
+							@endif
 							@error('nomor_induk_peminjam')
 								<div class="invalid-feedback">
 									{{ $message }}

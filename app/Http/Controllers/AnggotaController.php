@@ -31,7 +31,6 @@ class AnggotaController extends Controller
             'password' => 'required',
             'kelas' => 'required|max:255',
             'jumlah_pinjam' => 'required',
-            'jenis_kelamin' => 'required',
         ]);
         $validatedData['password'] = Hash::make($validatedData['password']);
         Anggota::create($validatedData);
@@ -51,7 +50,6 @@ class AnggotaController extends Controller
             'nomor_induk_anggota' => 'required|max:255',
             'kelas' => 'required|max:255',
             'jumlah_pinjam' => 'required',
-            'jenis_kelamin' => 'required',
         ]);
 
         if($request->password != null){

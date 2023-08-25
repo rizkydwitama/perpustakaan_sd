@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('kelas');
             $table->integer('jumlah_pinjam');
-            $table->string('jenis_kelamin');
+            // $table->string('jenis_kelamin');
             $table->timestamps();
         });
     }

@@ -26,7 +26,6 @@
 								<th scope="col">Nomor Induk</th>
 								<th scope="col">Kelas</th>
 								<th scope="col">Jumlah Peminjaman</th>
-								<th scope="col">Jenis Kelamin</th>
 								<th scope="col">Aksi</th>
 							</tr>
 						</thead>
@@ -38,7 +37,6 @@
 								<td>{{ $anggota->nomor_induk_anggota }}</td>
 								<td>{{ $anggota->kelas}}</td>
 								<td>{{ $anggota->jumlah_pinjam}}</td>
-								<td>{{ $anggota->jenis_kelamin}}</td>
 								<td>
 								<a href="editAnggota/{{ $anggota->id }}" class="btn btn-success">Edit</a>
                                 <form action="{{ route('hapusAnggota', $anggota->id) }}" method="POST" class="d-inline">

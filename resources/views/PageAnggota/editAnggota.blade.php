@@ -45,7 +45,7 @@
 							<input type="number" name="jumlah_pinjam" class="form-control" id="jumlah_pinjam" value="{{ $anggota->jumlah_pinjam}}">
 						</div>
 
-						<div class="mb-3">
+						{{-- <div class="mb-3">
 							<label for="jenis_kelamin" class="form-label">Jenis Kelamin</label>
 							<br>
 							<input type="radio"  name="jenis_kelamin" id="laki_laki" value="Laki-Laki" {{ $anggota->jenis_kelamin == 'Laki-Laki' ? 'checked' : '' }}>
@@ -53,7 +53,7 @@
 							<br>
 							<input type="radio" name="jenis_kelamin" id="perempuan" value="Perempuan" {{ $anggota->jenis_kelamin == 'Perempuan' ? 'checked' : '' }}>
 							<label class="form-check-label" for="perempuan"> Perempuan </label>
-						</div>
+						</div> --}}
 
 						<button type="submit" class="btn btn-outline-primary">Edit Anggota</button>
 					</form>
