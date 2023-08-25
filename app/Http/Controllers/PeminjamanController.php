@@ -43,8 +43,11 @@ class PeminjamanController extends Controller
     {
         if($request->slugBuku!=null){
             $slugBuku = $request->slugBuku;
+            $buku = Buku::where('slug', $slugBuku)->get()[0];
+            // dd($buku);
             return view('PagePeminjaman.addPeminjam',[
-                "slugBuku" => $slugBuku
+                "slugBuku" => $slugBuku,
+                "buku" => $buku
             ]);
         }
 

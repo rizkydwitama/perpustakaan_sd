@@ -28,6 +28,12 @@
 							<label for="nomor_induk_anggota" class="form-label">Nomor Induk Anggota</label>
 							<input type="text" name="nomor_induk_anggota" class="form-control" id="nomor_induk_anggota" value="{{ $anggota->nomor_induk_anggota }}">
 						</div>
+						<div class="mb-3">
+							<label for="password" class="form-label">Password</label>
+							<input type="password" name="password" class="form-control" id="password" >
+						</div>
+
+						
 
 						<div class="mb-3">
 							<label for="kelas" class="form-label">Kelas</label>

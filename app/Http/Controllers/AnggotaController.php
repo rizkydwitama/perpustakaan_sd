@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Anggota;
 use App\Models\Peminjaman;
 use Illuminate\Http\Request;
+use Illuminate\support\Facades\Hash;
 
 class AnggotaController extends Controller
 {
@@ -27,10 +28,12 @@ class AnggotaController extends Controller
         $validatedData = $request->validate([
             'nama_anggota' => 'required|max:255',
             'nomor_induk_anggota' => 'required|max:255',
+            'password' => 'required',
             'kelas' => 'required|max:255',
             'jumlah_pinjam' => 'required',
             'jenis_kelamin' => 'required',
         ]);
+        $validatedData['password'] = Hash::make($validatedData['password']);
         Anggota::create($validatedData);
         return redirect('/dataAnggota')->with('success', 'Anggota berhasil ditambahkan!');
     }
@@ -50,6 +53,10 @@ class AnggotaController extends Controller
             'jumlah_pinjam' => 'required',
             'jenis_kelamin' => 'required',
         ]);
+
+        if($request->password != null){
+            $validatedData['password'] = Hash::make($request->password);
+        }
         Anggota::where('id', $anggota->id)->update($validatedData);
         return redirect('/dataAnggota')->with('success', 'Data Anggota berhasil diupdate');
     }

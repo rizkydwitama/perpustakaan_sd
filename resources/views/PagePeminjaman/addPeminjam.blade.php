@@ -20,7 +20,11 @@
 						@csrf
 						<div class="mb-3">
 							<label for="judul_buku" class="form-label">Judul Buku</label>
-							<input type="text" name="judul_buku" class="form-control @error ('judul_buku') is-invalid @enderror" id="judul_buku">
+							@if($buku != null)
+								<input type="text" name="judul_buku" class="form-control @error ('judul_buku') is-invalid @enderror" id="judul_buku" value="{{ $buku->judul_buku }}">
+							@else
+								<input type="text" name="judul_buku" class="form-control @error ('judul_buku') is-invalid @enderror" id="judul_buku">
+							@endif
 							@error('judul_buku')
 								<div class="invalid-feedback">
 									{{ $message }}
