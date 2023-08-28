@@ -35,16 +35,44 @@ class DatabaseSeeder extends Seeder
 
 
         Category::create([
+            'name' => 'Umum',
+            'slug' => 'umum'
+        ]);
+        Category::create([
+            'name' => 'Filsafat/Ilmu yang Berkaitan',
+            'slug' => 'filsafat'
+        ]);
+        Category::create([
             'name' => 'Agama',
             'slug' => 'agama'
         ]);
         Category::create([
-            'name' => 'Pendidikan',
-            'slug' => 'pendidikan'
+            'name' => 'Sosial',
+            'slug' => 'sosial'
         ]);
         Category::create([
-            'name' => 'Hiburan',
-            'slug' => 'hiburan'
+            'name' => 'Bahasa',
+            'slug' => 'bahasa'
+        ]);
+        Category::create([
+            'name' => 'Ilmu Murni',
+            'slug' => 'ilmu-murni'
+        ]);
+        Category::create([
+            'name' => 'Teknologi',
+            'slug' => 'teknologi'
+        ]);
+        Category::create([
+            'name' => 'Ilmu Terapan',
+            'slug' => 'ilmu-terapan'
+        ]);
+        Category::create([
+            'name' => 'Fiksi',
+            'slug' => 'fiksi'
+        ]);
+        Category::create([
+            'name' => 'Geografi dan Sejarah',
+            'slug' => 'geografi-sejarah'
         ]);
 
         \App\Models\Peminjaman::factory(3)->create();
