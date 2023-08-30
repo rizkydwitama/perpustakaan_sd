@@ -1,10 +1,11 @@
+
 @extends('layout')
 @section('content')
     <div class="content-wrapper">
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <img src="{{ asset($buku->gambar) }}" alt="{{ $buku->judul_buku }}">
+                    <img src="{{ asset('storage/'. $buku->gambar) }}" alt="{{ $buku->judul_buku }}">
                 </div>
                 <div class="col">
                     <h1> {{ $buku->judul_buku }}</h1>
@@ -17,14 +18,14 @@
                     {{-- <a href="{{ route('AddPinjam') }}" class="btn btn-primary tombolTambah">tambah</a> --}}
 
                     @if (Auth::guard('anggota')->check())
-                        
+
                         <a href="/addPeminjam?slugBuku={{ $buku->slug }}">
                             <button type="button" class="btn btn-success btn-lg btn-block">
                                 Pinjam Buku
                             </button>
                         </a>
                     @else
-                        
+
                     <a href="editBuku/{{ $buku->slug }}">
                         <button type="button" class="btn btn-success btn-lg btn-block">
                             Edit Buku

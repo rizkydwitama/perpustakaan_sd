@@ -20,7 +20,7 @@
 				@if (session()->has('success'))
 				<div class="alert alert-success col-md-11" role="alert">
 					{{ session('success') }}
-				</div>	
+				</div>
 				@endif
 			</div>
 			<div class="row justify-content-center">
@@ -41,7 +41,7 @@
 						</thead>
 						<tbody>
 							@foreach ($pinjams as $pinjam)
-							@if ($pinjam->status_peminjaman == 0)															
+							@if ($pinjam->status_peminjaman == 0)
 							<tr>
 								<th scope="row">{{ $pinjam->id }}</th>
 								<td>{{ $pinjam->judul_buku }}</td>

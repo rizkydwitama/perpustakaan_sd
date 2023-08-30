@@ -1,3 +1,4 @@
+
 @extends('layout')
 
 @section('content')
@@ -15,7 +16,7 @@
                     @endif
                 </div>
             </form>
-            
+
             <form action="">
             @csrf
                 <div class="d-flex justify-content-center">
@@ -27,15 +28,14 @@
                     </select>
                     <button type="submit" class="btn btn-dark">Apply</button>
                 </div>
-            
+
             </form>
         </div>
         <div class="latest-row" id="booknamesearch">
             @foreach ($bukus as $buku)
-            @if($buku->jumlah_buku > 0)
             <div class="latest-col">
                 <div class="latest-img">
-                    <img src="{{ asset($buku->gambar) }}" alt="{{ $buku->judul_buku }}" class="img-fluid mt-3">
+                    <img src="{{ asset('storage/'. $buku->gambar) }}" alt="{{ $buku->judul_buku }}" class="img-fluid mt-3">
                 </div>
                 <div class="info">
                     <a href="detailBuku/{{ $buku->slug }}"  >
@@ -44,7 +44,6 @@
                     <p>{{ $buku->pengarang }}</p>
                 </div>
             </div>
-            @endif
             @endforeach
         </div>
     </div>
