@@ -24,9 +24,14 @@
                             </button>
                         </a>
                     @else
+                    <a href="/addPeminjam?slugBuku={{ $buku->slug }}">
+                        <button type="button" class="btn btn-success btn-lg btn-block">
+                            Pinjam Buku
+                        </button>
+                    </a>
                         
                     <a href="editBuku/{{ $buku->slug }}">
-                        <button type="button" class="btn btn-success btn-lg btn-block">
+                        <button type="button" class="btn btn-warning btn-lg btn-block">
                             Edit Buku
                         </button>
                     </a>

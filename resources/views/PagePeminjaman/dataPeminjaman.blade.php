@@ -18,9 +18,9 @@
 						<input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Search.." name="search" value="{{ request('search') }}">
 						<button class="btn btn-secondary" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
 						&nbsp;
-						@if(Auth::guard('user')->check())
+						{{-- @if(Auth::guard('user')->check())
 							<a href="{{ route('AddPinjam') }}" class="btn btn-primary tombolTambah">tambah</a>
-						@endif
+						@endif --}}
 					</div>
 					</form>
 				</div>

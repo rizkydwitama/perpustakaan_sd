@@ -71,7 +71,7 @@ class PeminjamanController extends Controller
         $date_kembali = Carbon::createFromFormat('d/m/Y', $request->tanggal_pengembalian)->format('Y-m-d');
         $validatedData['tanggal_peminjaman'] = $date_pinjam;
         $validatedData['tanggal_pengembalian'] = $date_kembali;
-        // dd($validatedData);
+        // dd($request);
         $buku = Buku::where('slug', $request->slugBuku)->get()[0];
         $validatedData['id_buku'] = $buku->id;
         $buku->jumlah_buku -= 1;
