@@ -58,10 +58,10 @@ Route::get('/dataPeminjaman', [PeminjamanController::class, 'viewDataPinjam'])->
 Route::get('/addPeminjam', [PeminjamanController::class, 'formAddPinjam'])->name('AddPinjam')->middleware('auth:user,anggota');
 Route::post('/addPeminjam/store', [PeminjamanController::class, 'store']);
 Route::get('/addPeminjam/checkSlug', [PeminjamanController::class, 'checkSlug']);
-Route::get('/editPeminjam/{pinjam:slug}', [PeminjamanController::class, 'formEditPinjam'])->name('EditPinjam')->middleware('auth:user');
-Route::put('/editPeminjam/editPeminjam/{pinjam:slug}', [PeminjamanController::class, 'update']);
-Route::get('/editPeminjam/{pinjam:slug}/kembalikan', [PeminjamanController::class, 'kembalikan']);
-Route::get('/editPeminjam/{pinjam:slug}/hapus', [PeminjamanController::class, 'hapus'])->middleware('auth:user');
+Route::get('/editPeminjam/{pinjam:id}', [PeminjamanController::class, 'formEditPinjam'])->name('EditPinjam')->middleware('auth:user');
+Route::put('/editPeminjam/editPeminjam/{pinjam:id}', [PeminjamanController::class, 'update']);
+Route::get('/editPeminjam/{pinjam:id}/kembalikan', [PeminjamanController::class, 'kembalikan']);
+Route::get('/editPeminjam/{pinjam:id}/hapus', [PeminjamanController::class, 'hapus'])->middleware('auth:user');
 
 //Pengembalian
 Route::get('/dataPengembalian', [PengembalianController::class, 'viewDataKembali'])->name('DataKembali')->middleware('auth:user,anggota');
@@ -69,10 +69,10 @@ Route::get('/editPengembalian', [PengembalianController::class, 'formEditDataKem
 
 //pengembalian
 Route::get('/dataPengembalian', [PengembalianController::class, 'viewDataPengembalian'])->name('DataKembali')->middleware('auth:user,anggota');
-Route::get('/editPengembalian/{pinjam:slug}', [PengembalianController::class, 'formEditDataKembali'])->name('EditKembali')->middleware('auth:user');
-Route::put('/editPengembalian/editPengembalian/{pinjam:slug}', [PengembalianController::class, 'update']);
-Route::get('/editPengembalian/{pinjam:slug}/hapus', [PengembalianController::class, 'hapus']);
-Route::get('/editPengembalian/{pinjam:slug}/batal', [PengembalianController::class, 'batal_kembali']);
+Route::get('/editPengembalian/{pinjam:id}', [PengembalianController::class, 'formEditDataKembali'])->name('EditKembali')->middleware('auth:user');
+Route::put('/editPengembalian/editPengembalian/{pinjam:id}', [PengembalianController::class, 'update']);
+Route::get('/editPengembalian/{pinjam:id}/hapus', [PengembalianController::class, 'hapus']);
+Route::get('/editPengembalian/{pinjam:id}/batal', [PengembalianController::class, 'batal_kembali']);
 
 Route::get('/login', [AuthController::class, 'viewLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'authenticate']);

@@ -73,6 +73,7 @@ class PeminjamanController extends Controller
         $validatedData['tanggal_pengembalian'] = $date_kembali;
         // dd($validatedData);
         $buku = Buku::where('slug', $request->slugBuku)->get()[0];
+        $validatedData['id_buku'] = $buku->id;
         $buku->jumlah_buku -= 1;
         $buku->save();
 
@@ -135,8 +136,8 @@ class PeminjamanController extends Controller
         $data = Peminjaman::find($pinjam->id);
         $data->status_peminjaman = false;
         $data->tanggal_kembali_faktual = $data->updated_at;
-       
-        $buku = Buku::where('slug', $data->slug)->get()[0];
+    //    dd(Buku::where('slug','like', '%' . $data->slug . '%')->get()[0]);
+        $buku = Buku::where('id',$data->id_buku)->get()[0];
         $buku->jumlah_buku += 1;
         $buku->save();
         

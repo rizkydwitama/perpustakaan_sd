@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('peminjamen', function (Blueprint $table) {
             $table->id();
             $table->string('judul_buku');
-            $table->string('slug')->unique();
+            $table->foreignId('id_buku');
             $table->string('nama_peminjam');
             $table->string('nomor_induk_peminjam');
             $table->date("tanggal_peminjaman");

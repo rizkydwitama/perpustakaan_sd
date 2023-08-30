@@ -60,7 +60,7 @@
 								<td>Meminjam</td>
 								<td>
 									@if(Auth::guard('user')->check())
-										<a href="editPeminjam/{{ $pinjam->slug }}" class="btn btn-success">Edit</a>
+										<a href="editPeminjam/{{ $pinjam->id }}" class="btn btn-success">Edit</a>
 									@endif
 
 
@@ -87,7 +87,7 @@
 									</div>
 									<div class="modal-footer">
 									<button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
-									<a href="editPeminjam/{{ $pinjam->slug }}/hapus" class="btn btn-danger">Ya</a>
+									<a href="editPeminjam/{{ $pinjam->id }}/hapus" class="btn btn-danger">Ya</a>
 									</div>
 								</div>
 								</div>
@@ -107,7 +107,7 @@
 									</div>
 									<div class="modal-footer">
 									<button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
-									<a href="editPeminjam/{{ $pinjam->slug }}/kembalikan" class="btn btn-warning">Ya</a>
+									<a href="editPeminjam/{{ $pinjam->id }}/kembalikan" class="btn btn-warning">Ya</a>
 									</div>
 								</div>
 								</div>
