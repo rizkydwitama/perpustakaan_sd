@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Perpustakaan SD 1 Darul Hikam Bandung</title>
+  <link rel="icon" href="{{asset('lte/dist/img/logo_sd_darul_hikam.png')}}" type="image/x-icon">
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -127,8 +128,8 @@
                   </p>
                 </button>
               </form>
-            
-              
+
+
             </a>
           </li>
 
