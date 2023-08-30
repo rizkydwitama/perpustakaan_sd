@@ -75,7 +75,7 @@ class DatabaseSeeder extends Seeder
             'slug' => 'geografi-sejarah'
         ]);
 
-        \App\Models\Peminjaman::factory(3)->create();
+        // \App\Models\Peminjaman::factory(3)->create();
 
         // Anggota::create([
         //     'name' => 'Hiburan',

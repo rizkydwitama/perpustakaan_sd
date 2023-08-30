@@ -52,7 +52,8 @@ class PeminjamanController extends Controller
         }
 
         return view('PagePeminjaman.addPeminjam',[
-            "slugBuku"=> null
+            "slugBuku"=> null,
+            "buku" => null
         ]);
     }
 

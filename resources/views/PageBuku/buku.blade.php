@@ -32,6 +32,7 @@
         </div>
         <div class="latest-row" id="booknamesearch">
             @foreach ($bukus as $buku)
+            @if($buku->jumlah_buku > 0)
             <div class="latest-col">
                 <div class="latest-img">
                     <img src="{{ asset($buku->gambar) }}" alt="{{ $buku->judul_buku }}" class="img-fluid mt-3">
@@ -43,6 +44,7 @@
                     <p>{{ $buku->pengarang }}</p>
                 </div>
             </div>
+            @endif
             @endforeach
         </div>
     </div>
