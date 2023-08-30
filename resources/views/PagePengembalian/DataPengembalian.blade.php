@@ -51,7 +51,7 @@
 								<td>{{ date('d-M-Y', strtotime($pinjam->tanggal_kembali_faktual)) }}</td>
 								<td>Dikembalikan</td>
 								<td>
-									<a href="editPengembalian/{{ $pinjam->slug }}" class="btn btn-primary">Edit</a>
+									<a href="editPengembalian/{{ $pinjam->id }}" class="btn btn-primary">Edit</a>
 									<a class="btn btn-warning" data-toggle="modal" data-target="#exampleModal2">Batal</a>
 									<a class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">Hapus</a>
 								</td>
@@ -70,7 +70,7 @@
 									</div>
 									<div class="modal-footer">
 									<button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
-									<a href="editPengembalian/{{ $pinjam->slug }}/hapus" class="btn btn-danger">Ya</a>
+									<a href="editPengembalian/{{ $pinjam->id }}/hapus" class="btn btn-danger">Ya</a>
 									</div>
 								</div>
 								</div>
@@ -90,7 +90,7 @@
 									</div>
 									<div class="modal-footer">
 									<button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
-									<a href="editPengembalian/{{ $pinjam->slug }}/batal" class="btn btn-warning">Ya</a>
+									<a href="editPengembalian/{{ $pinjam->id }}/batal" class="btn btn-warning">Ya</a>
 									</div>
 								</div>
 								</div>
