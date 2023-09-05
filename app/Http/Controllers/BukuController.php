@@ -60,7 +60,8 @@ class BukuController extends Controller
         if ($request->hasFile('gambar')) {
             $image = $validatedData['gambar'];
             $filename = time() . '.' . $image->getClientOriginalExtension();
-            $validatedData['gambar'] = $image->storeAs('images', $filename);
+            $path = $image->storeAs('public/images', $filename);
+            $validatedData['gambar'] = 'storage/images/' . $filename;
         } else {
             $validatedData['gambar'] = 'images/no-cover.png';
         }
@@ -90,13 +91,14 @@ class BukuController extends Controller
             'no_class' => 'required|max:255',
         ];
         $validatedData = $request->validate($rules);
-        if ($request->hasFile('gambar')) {
-            if ($buku->gambar !== 'images/no-cover.png') {
-                Storage::delete($buku->gambar);
+        if($request->file('gambar')){
+            if($request->oldGambar){
+                Storage::delete($request->oldGambar);
             }
             $image = $request->file('gambar');
             $filename = time() . '.' . $image->getClientOriginalExtension();
-            $validatedData['gambar'] = $image->storeAs('images', $filename);
+            $path = $image->storeAs('public/images', $filename);
+            $validatedData['gambar'] = 'storage/images/' . $filename;
         }
         Buku::where('id', $buku->id)->update($validatedData);
         return redirect('/buku')->with('success', 'Data Buku berhasil diupdate');
